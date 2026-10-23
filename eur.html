@@ -1332,8 +1332,9 @@ mark.hit.cur{background:#ffb703;box-shadow:0 0 0 2px rgba(255,183,3,.45)}
 <li><strong>戦争準備中・戦争中は課金そのものが保留され、終戦した直後に保留分がまとめて引かれます。</strong>
   払えなければそこから最低維持費の滞納が始まります。保留の上限は14日です。</li>
 </ul>
-<p><strong><code>[新興組織]</code> の保護</strong> — 設立すると付き、<strong>設立した日の午前0時から7日間</strong>、
-<strong>宣戦布告を受けず、自分からも布告できません</strong>（例: 8月13日15時に設立 → 8月20日午前0時まで）。</p>
+<p><strong><code>[新興組織]</code> の保護</strong> — 設立すると付き、<strong>設立した日の午前0時から4週間（28日）</strong>（1.124.0。それまでは7日）、
+<strong>宣戦布告を受けず、自分からも布告できません</strong>（例: 8月13日15時に設立 → 9月10日午前0時まで）。
+保護の間は<strong>領土を64チャンク（8×8）までしか持てません</strong>（1.111.0。7-2. 領土を取得する の「取得できない条件」）。</p>
 <p><strong>都市組織へ昇格すると付き直します</strong>（設立時の保護が切れていても改めて与えられます）。</p>
 <div class="tablewrap"><table>
 <thead>
@@ -1349,13 +1350,13 @@ mark.hit.cur{background:#ffb703;box-shadow:0 0 0 2px rgba(255,183,3,.45)}
 </tr>
 <tr>
 <td>条件を満たしての昇格</td>
-<td><strong>7日</strong>（設立時と同じ数え方）</td>
+<td><strong>4週間（28日）</strong>（設立時と同じ数え方）</td>
 </tr>
 </tbody>
 </table></div>
 <p>付き直した保護は有料延長できません。元の保護のほうが長ければ短くはなりません。
 保護の期限を設定し直すと、自主解除の予約も一緒に消えます。</p>
-<p><strong>有料で最大4週間まで延ばせます</strong>（組織管理 → 外交方針。要 <code>外交方針</code> 権限）</p>
+<p><strong>有料で通算6週間まで延ばせます</strong>（1.124.0。組織管理 → 外交方針。要 <code>外交方針</code> 権限）</p>
 <div class="tablewrap"><table>
 <thead>
 <tr>
@@ -1368,17 +1369,12 @@ mark.hit.cur{background:#ffb703;box-shadow:0 0 0 2px rgba(255,183,3,.45)}
 <tr>
 <td>1回目</td>
 <td>5,000EUR</td>
-<td>2週間</td>
+<td>5週間</td>
 </tr>
 <tr>
 <td>2回目</td>
 <td>10,000EUR</td>
-<td>3週間</td>
-</tr>
-<tr>
-<td>3回目</td>
-<td>20,000EUR</td>
-<td>4週間（上限）</td>
+<td>6週間（上限）</td>
 </tr>
 </tbody>
 </table></div>
@@ -1647,7 +1643,7 @@ mark.hit.cur{background:#ffb703;box-shadow:0 0 0 2px rgba(255,183,3,.45)}
 <blockquote class="summary"><p><strong>この章の要点</strong></p>
 <ul>
 <li>組織は <strong>普通組織 → 都市組織 → 国家組織</strong> の順に育てます。いきなり上は作れません。</li>
-<li>設立は <strong><code>[member]</code> 階級 ＋ 10,000EUR</strong>（個人残高）。昇格は <strong>50,000EUR</strong>（金庫）。</li>
+<li>設立は <strong><code>[member]</code> 階級 ＋ 10,000EUR</strong>（個人残高）。昇格は都市組織へ <strong>50,000EUR</strong>・国家組織へ <strong>70,000EUR</strong>（金庫。1.130.0）。</li>
 <li>弾かれる理由は1つだけ出ます。数値は初期設定で、実際の値はゲーム内 GUI で見られます。</li>
 </ul>
 </blockquote>
@@ -1718,7 +1714,7 @@ mark.hit.cur{background:#ffb703;box-shadow:0 0 0 2px rgba(255,183,3,.45)}
 <p>⚠ <strong>都市組織・国家組織の構成員が作った普通組織は、自動でその傘下に入ります</strong> → 8-3。
 傘下のままでも、上位組織より小さい種別に留まるなら昇格できます（国家の傘下の普通組織 → 都市組織）。上位組織と同じ大きさ以上にはなれません。</p>
 <p>設立者が<strong>リーダー兼構成員</strong>になります。権限とホームは既定値（基本権限＝組織ホームへの移動／公開範囲＝系列組織）です。
-<strong><code>[新興組織]</code></strong> が付きます（設立日の午前0時から7日。有料で延長可）。
+<strong><code>[新興組織]</code></strong> が付きます（設立日の午前0時から4週間。有料で通算6週間まで延長可）。
 最初の維持費は<strong>翌月1日以降</strong>です → 2-8. 維持費</p>
 <hr />
 <h2 id="ch03-s1"><span id="3-2"></span>3-2. 都市組織へ昇格する</h2>
@@ -1795,7 +1791,7 @@ mark.hit.cur{background:#ffb703;box-shadow:0 0 0 2px rgba(255,183,3,.45)}
 5-2. 中央区 を見てください。</p>
 <p>ビーコンと同じチャンクに立ち、<code>/eur</code> → 組織管理 →「<strong>組織を昇格</strong>」→ 確認画面で承認します。
 そのチャンクが<strong>中央区</strong>かつ<strong>最初の領土1チャンク目</strong>になります。領土色は未設定なら緑（<code>#55FF55</code>）。真上1〜3段の領土色ガラスは壊せません。中央区にできない場所のブロックはアイテムになって撤去されます。
-<code>[新興組織]</code> も付き直します（7日。<code>[臨時]</code> なら臨時と同じ期限。今の保護が長ければ縮みません。傘下の組織には付きません）。⚠ これは<strong>延長できません</strong>。</p>
+<code>[新興組織]</code> も付き直します（4週間。<code>[臨時]</code> なら臨時と同じ期限。今の保護が長ければ縮みません。傘下の組織には付きません）。⚠ これは<strong>延長できません</strong>。</p>
 <hr />
 <h2 id="ch03-s2"><span id="3-3"></span>3-3. 国家組織へ昇格する</h2>
 <h3>昇格チェックリスト（15項目）</h3>
@@ -2104,7 +2100,7 @@ mark.hit.cur{background:#ffb703;box-shadow:0 0 0 2px rgba(255,183,3,.45)}
 </tr>
 <tr>
 <td>最低維持費</td>
-<td>毎月1日に 3,000EUR</td>
+<td>毎月1日に 6,000EUR（1.130.0。1.129.0 までは 3,000）</td>
 </tr>
 <tr>
 <td>チャンク維持費</td>
@@ -2373,7 +2369,7 @@ mark.hit.cur{background:#ffb703;box-shadow:0 0 0 2px rgba(255,183,3,.45)}
 <h3>占領されるとどうなるか</h3>
 <p><code>[占領中]</code> が付くだけで、所属・金庫・構成員・領土はそのままです。
 領土はどちらの陣営にも数えず、チャンク維持費も 0 になります。
-ただし最低維持費 3,000EUR は掛かり続けます。
+ただし最低維持費 6,000EUR は掛かり続けます。
 <code>[占領中]</code> の間は中央区を変更できず、傘下編入の対象にもできません。
 奪還できるのは対象組織のツリー（上位・傘下を含む）の構成員だけで、何度でも取り合えます。
 同じチームでも、別ツリーの組織は奪還できません。</p>
@@ -2384,7 +2380,7 @@ mark.hit.cur{background:#ffb703;box-shadow:0 0 0 2px rgba(255,183,3,.45)}
 <h2 id="ch05-s8"><span id="5-8"></span>5-8. 解体・消滅の条件</h2>
 <p>都市組織に固有の条件は次の3つです。</p>
 <ul>
-<li><strong>最低維持費 3,000EUR</strong> の滞納が7日続くと解体（チャンク維持費の滞納は外側のチャンクの剥奪）</li>
+<li><strong>最低維持費 6,000EUR</strong> の滞納が7日続くと解体（チャンク維持費の滞納は外側のチャンクの剥奪）</li>
 <li><strong><code>[member]</code> が3人未満</strong>のまま7日で解体</li>
 <li><strong><code>[臨時]</code> のまま条件を満たせず</strong>7日で強制解体（5-1b）</li>
 </ul>
@@ -2435,11 +2431,11 @@ mark.hit.cur{background:#ffb703;box-shadow:0 0 0 2px rgba(255,183,3,.45)}
 <tbody>
 <tr>
 <td>昇格費用</td>
-<td>50,000EUR（金庫から）</td>
+<td>70,000EUR（金庫から。1.130.0。1.129.0 までは 50,000）</td>
 </tr>
 <tr>
 <td>最低維持費</td>
-<td>毎月1日に 5,000EUR</td>
+<td>毎月1日に 10,000EUR（1.130.0。1.129.0 までは 5,000）</td>
 </tr>
 <tr>
 <td>チャンク維持費</td>
@@ -2584,7 +2580,7 @@ mark.hit.cur{background:#ffb703;box-shadow:0 0 0 2px rgba(255,183,3,.45)}
 <h2 id="ch06-s6"><span id="6-7"></span>6-7. 解体・消滅の条件</h2>
 <p>国家組織に固有の条件は次の4つです。</p>
 <ul>
-<li><strong>最低維持費 5,000EUR</strong> の滞納が7日続くと解体（チャンク維持費の滞納は外側のチャンクの剥奪。首都は対象外）</li>
+<li><strong>最低維持費 10,000EUR</strong> の滞納が7日続くと解体（チャンク維持費の滞納は外側のチャンクの剥奪。首都は対象外）</li>
 <li><strong><code>[member]</code> が5人未満</strong>のまま7日で解体</li>
 <li><strong>その国家自身の領有チャンクが9未満</strong>のまま7日で解体</li>
 <li><strong>首都ビーコンの破壊</strong>は即時に崩壊（6-6）</li>
@@ -2655,6 +2651,8 @@ mark.hit.cur{background:#ffb703;box-shadow:0 0 0 2px rgba(255,183,3,.45)}
 </table></div>
 <p>未領有地では <code>❰ 未領有地 ❱ │ 自由に建築できます</code> と出ます。
 記号の読み方は 11-3. アクションバー にあります。</p>
+<p>領土の無いワールド（資源ワールド・SHOP ワールドなど。領土を取れるワールド・ネザー・飛び地のワールド以外）では、領有の表示は出ません（1.113.0）。
+<code>/eur here</code> とメインメニューの「現在地の領土情報」は「このワールドには領土がありません」になります。</p>
 <h3>チャンクの境目</h3>
 <p>Java 版の F3+G（チャンクの境目）は<strong>統合版にはありません</strong>。その代わりに、いるチャンクの四辺を粒で出せます（1.102.0）。</p>
 <div class="tablewrap"><table>
@@ -2675,7 +2673,7 @@ mark.hit.cur{background:#ffb703;box-shadow:0 0 0 2px rgba(255,183,3,.45)}
 </tr>
 <tr>
 <td>色</td>
-<td><strong>黄</strong>＝未領有地／<strong>緑</strong>＝自分の系列（所属する組織と、同じ最上位の組織の下にある組織）の領土／<strong>赤</strong>＝ほかの組織の領土</td>
+<td><strong>黄</strong>＝未領有地／<strong>緑</strong>＝自分の系列（所属する組織と、同じ最上位の組織の下にある組織）の領土／<strong>赤</strong>＝ほかの組織の領土／<strong>白</strong>＝領土の無いワールド（1.113.0）</td>
 </tr>
 <tr>
 <td>切れるとき</td>
@@ -2759,27 +2757,31 @@ mark.hit.cur{background:#ffb703;box-shadow:0 0 0 2px rgba(255,183,3,.45)}
 </tr>
 <tr>
 <td>7</td>
-<td>自組織の領土と縦横に隣接していない（飛び地は要りません → 7-10）</td>
+<td><code>[新興組織]</code> で領有が上限（<strong>64チャンク＝8×8</strong>）に到達（1.111.0。飛び地も数えます。持っている領土はそのままで、保護が外れるとまた取れます。保護 → 2-8）</td>
 </tr>
 <tr>
 <td>8</td>
-<td>他組織の領土・未領有地を自国の領土で囲ってしまう（大きさを問いません。下の「囲う取得の禁止と穴」）</td>
+<td>自組織の領土と縦横に隣接していない（飛び地は要りません → 7-10）</td>
 </tr>
 <tr>
 <td>9</td>
-<td><code>[臨時]</code> で中央区の 3×3 の外</td>
+<td>他組織の領土・未領有地を自国の領土で囲ってしまう（大きさを問いません。下の「囲う取得の禁止と穴」）</td>
 </tr>
 <tr>
 <td>10</td>
-<td><code>[臨時]</code> で領有が上限（3×3 ＝ 最大9チャンク）に到達</td>
+<td><code>[臨時]</code> で中央区の 3×3 の外</td>
 </tr>
 <tr>
 <td>11</td>
+<td><code>[臨時]</code> で領有が上限（3×3 ＝ 最大9チャンク）に到達</td>
+</tr>
+<tr>
+<td>12</td>
 <td>金庫が足りない（必要額と残高が出ます）</td>
 </tr>
 </tbody>
 </table></div>
-<p><strong>囲う取得の禁止と穴</strong>（表の 8）: 取ると、ほかの組織の領土か未領有地が<strong>自国の領土に囲まれて外へ出られなくなる</strong>ときは取れません。ほかの組織の領土を閉じ込めない・外とつながっている未領有地を閉じ込めないための決まりです。</p>
+<p><strong>囲う取得の禁止と穴</strong>（表の 9）: 取ると、ほかの組織の領土か未領有地が<strong>自国の領土に囲まれて外へ出られなくなる</strong>ときは取れません。ほかの組織の領土を閉じ込めない・外とつながっている未領有地を閉じ込めないための決まりです。</p>
 <ul>
 <li><strong>囲われる側の大きさは問いません</strong>（1.107.1）。⚠ 1.107.0 までは隣の1チャンクが四方とも自領土になるかしか見ていなかったので、輪を作れば2チャンク以上の未領有地やほかの組織の領土を囲えました。</li>
 <li><strong>自国の領土</strong>は、最上位の組織とその傘下ぜんぶの領土です。国家と傘下の都市がいっしょに輪を閉じることもできません。</li>
@@ -2807,7 +2809,7 @@ mark.hit.cur{background:#ffb703;box-shadow:0 0 0 2px rgba(255,183,3,.45)}
 <ul>
 <li>切り替えは まとめて取得の画面の<strong>「水の多いチャンク」</strong>（除く／除かない。初期設定は除かない）。除くチャンクは図で<strong>青</strong>になります。コマンドでは <code>/eur claim 5 circle nowater</code>（除く）・<code>water</code>（除かない）で、その回だけ決められます。</li>
 <li>表面は 16×16 の柱それぞれのいちばん上のブロックで、水・気泡の柱・海藻・海草・スイレンの葉を水と数えます（氷は数えません）。</li>
-<li><strong>まわりがすべて自国の領土か、この回に取る陸になる湖（縦横につながった水のチャンク）は取ります</strong>。除くと、囲う取得の禁止（上の表の 8）でまわりの陸が取れなくなるためです（1.107.1 から湖の大きさを問いません）。範囲の縁やほかの組織の領土に面した湖は除いたままです。</li>
+<li><strong>まわりがすべて自国の領土か、この回に取る陸になる湖（縦横につながった水のチャンク）は取ります</strong>。除くと、囲う取得の禁止（上の表の 9）でまわりの陸が取れなくなるためです（1.107.1 から湖の大きさを問いません）。範囲の縁やほかの組織の領土に面した湖は除いたままです。</li>
 <li>掛かるのは半径1以上のまとめての取得だけです。今いる1枚・放棄・歩いて領有には掛かりません。</li>
 </ul>
 <h3>歩いて領有</h3>
@@ -2842,7 +2844,7 @@ mark.hit.cur{background:#ffb703;box-shadow:0 0 0 2px rgba(255,183,3,.45)}
 </tr>
 <tr>
 <td>止まるとき</td>
-<td>もう一度切り替えた・金庫が1枚ぶんに足りない・<code>領土の取得</code>の権限が無くなった・開戦した・<code>[臨時]</code> の上限に届いた・ログアウトした</td>
+<td>もう一度切り替えた・金庫が1枚ぶんに足りない・<code>領土の取得</code>の権限が無くなった・開戦した・<code>[臨時]</code> か <code>[新興組織]</code> の上限に届いた・ログアウトした</td>
 </tr>
 <tr>
 <td>構成員への通知</td>
@@ -3399,9 +3401,8 @@ mark.hit.cur{background:#ffb703;box-shadow:0 0 0 2px rgba(255,183,3,.45)}
 </tr>
 <tr>
 <td>中央区・首都</td>
-<td>そこに当たる<strong>ネザーの1チャンク（16×16）を丸ごと</strong>その組織の領土にします（2×2 だけでは狭すぎるため）。
-そのチャンクに入るほかの組織の写しも、中央区・首都の組織のものになります。
-2つの中央区が同じネザーのチャンクに当たるときは、ブロックごとに近いほうの中央区のものです</td>
+<td>ほかのチャンクと同じく <strong>2×2 ブロック</strong>です（1.111.0）。⚠ 1.107.0〜1.110.0 は中央区・首都に当たる<strong>ネザーの1チャンク（16×16）を丸ごと</strong>その組織の領土にしていたので、
+同じネザーのチャンクに入るほかの組織（傘下の都市・隣の組織）の写しが中央区・首都の組織のものになり、Web 地図にも出ていませんでした</td>
 </tr>
 <tr>
 <td>取る・放す</td>
@@ -3911,7 +3912,7 @@ Web 地図ではネザーの地図に描かれます</td>
 </tr>
 <tr>
 <td>先制攻撃の禁止</td>
-<td>自動で ON。以後 OFF にできません</td>
+<td>自動で ON。以後 OFF にできません。ただし<strong>布告されてから終戦までは、その戦争の敵には先に手を出せます</strong>（1.123.0。義勇兵も敵に入ります）</td>
 </tr>
 <tr>
 <td>宣戦布告・参戦設定</td>
@@ -4057,7 +4058,8 @@ Web 地図ではネザーの地図に描かれます</td>
 <blockquote class="summary"><p><strong>この章の要点</strong></p>
 <ul>
 <li>宣戦布告できるのは<strong>都市組織・国家組織</strong>だけです。傘下組織はできません。</li>
-<li>費用は <strong>10,000EUR ＋ 固有領土チャンク数 × 150EUR</strong>。⚠ 取り消せません。</li>
+<li>費用は <strong>10,000EUR ＋（自分と布告先の固有領土チャンク数の合計）× 150EUR</strong>、ただし<strong>最低 50,000EUR</strong>（1.130.0）。⚠ 取り消せません。</li>
+<li>⚠ 参加申請を受理して<strong>構成員を新しく入れてから7日間は、宣戦布告も参戦要求もできません</strong>（1.123.0）。</li>
 <li>布告から開戦まで約2日。開戦時刻は<strong>参戦者全員の投票</strong>で決めます。</li>
 <li>⚠ 開戦から<strong>10分</strong>は中央区・首都のビーコンを壊せません。</li>
 <li><strong>投票が締め切られた瞬間に参加者が確定</strong>し、以後は誰も加われません。</li>
@@ -4079,11 +4081,11 @@ Web 地図ではネザーの地図に描かれます</td>
 <tbody>
 <tr>
 <td>費用の式</td>
-<td><strong>10,000EUR ＋ 固有領土チャンク数 × 150EUR</strong></td>
+<td><strong>10,000EUR ＋（自分の固有領土＋布告先の固有領土）チャンク数 × 150EUR</strong>（1.123.0。1.122.0 までは自分のぶんだけ）。参戦要求で加わる組織のぶんは入りません</td>
 </tr>
 <tr>
 <td>数えるチャンク</td>
-<td>自分と傘下の領土。<code>[占領中]</code> の組織のぶんは除く。ネザーの写しと飛び地も数えません（7-10）</td>
+<td>自分と傘下の領土、布告先とその傘下の領土。<code>[占領中]</code> の組織のぶんは除く。ネザーの写しと飛び地も数えません（7-10）</td>
 </tr>
 <tr>
 <td>中立組織 / 元中立組織へ</td>
@@ -4095,7 +4097,7 @@ Web 地図ではネザーの地図に描かれます</td>
 </tr>
 <tr>
 <td>下限</td>
-<td>なし。10,000EUR は最低額ではなく<strong>必ず加算される基本額</strong></td>
+<td><strong>50,000EUR</strong>（1.130.0。1.129.0 までは無し）。基本額 10,000EUR ＋ チャンク数 × 150EUR がこれに届かなければ 50,000EUR。中立組織への10倍などの例外も、これを下回りません。参戦の費用には掛かりません</td>
 </tr>
 <tr>
 <td>支払い</td>
@@ -4111,7 +4113,8 @@ Web 地図ではネザーの地図に描かれます</td>
 </tr>
 </tbody>
 </table></div>
-<p>例）領土20チャンク → 10,000 ＋ 20×150 ＝ <strong>13,000EUR</strong></p>
+<p>例）自分の領土20チャンク・布告先30チャンク → 10,000 ＋（20＋30）×150 ＝ 17,500 → 最低費用より少ないので <strong>50,000EUR</strong>。
+合計 270 チャンクを超えると 50,000EUR より高くなります（10,000 ＋ 300×150 ＝ 55,000EUR）。</p>
 <div class="tablewrap"><table>
 <thead>
 <tr>
@@ -4133,7 +4136,7 @@ Web 地図ではネザーの地図に描かれます</td>
 <td><strong>不可侵条約の相手</strong> / 既に交戦・準備中の相手 / 同じチーム</td>
 </tr>
 <tr>
-<td><strong>終戦から3日のクールタイム中</strong>（参戦要求も不可）</td>
+<td><strong>終戦から3日のクールタイム中</strong>（参戦要求も不可）<br><strong>構成員を新しく入れてから7日間</strong>（1.123.0。系列のどこかで参加申請を受理した時から。参戦要求も不可）</td>
 <td><strong>構成員が全員7日以上ログインしていない組織</strong></td>
 </tr>
 <tr>
@@ -4170,11 +4173,11 @@ Web 地図ではネザーの地図に描かれます</td>
 </tr>
 <tr>
 <td>出す側の費用</td>
-<td>布告費用の<strong>半額</strong>。送った時点で金庫から</td>
+<td>参戦の費用の<strong>半額</strong>。送った時点で金庫から。参戦の費用は <strong>10,000EUR ＋（その戦争の布告側＋布告先＋自分）の固有領土チャンク数 × 150EUR</strong>（1.123.0）</td>
 </tr>
 <tr>
 <td>承認する側の費用</td>
-<td>要求元の領土で計算した<strong>布告費用の全額</strong></td>
+<td>上の<strong>参戦の費用の全額</strong></td>
 </tr>
 <tr>
 <td>前払いが返る</td>
@@ -4268,7 +4271,7 @@ Web 地図ではネザーの地図に描かれます</td>
 </tr>
 <tr>
 <td>画面</td>
-<td><strong>最初の1回を入れるまで閉じられません。</strong> ログイン時にも出ます</td>
+<td><strong>最初の1回を入れるまで閉じられません。</strong> ログイン時にも出ます。統合版は<strong>フォーム</strong>で出ます（1.111.0。入れるまでは閉じてもまた出ます）</td>
 </tr>
 <tr>
 <td>入れ直す導線</td>
@@ -4310,11 +4313,11 @@ Web 地図ではネザーの地図に描かれます</td>
 </tr>
 <tr>
 <td>申請料</td>
-<td><strong>1人 1,000EUR × 人数</strong>。個人は所持金、組織は金庫から。⚠ <strong>どんな結末でも返りません</strong></td>
+<td><strong>1人 50,000EUR × 人数</strong>（1.123.0。それまでは 1,000EUR）。個人は所持金、組織は金庫から。⚠ <strong>どんな結末でも返りません</strong></td>
 </tr>
 <tr>
 <td>承認費用</td>
-<td><strong>1人 1,000EUR × 承認時点の人数</strong>。<strong>参戦先の金庫</strong>から</td>
+<td><strong>1人 50,000EUR × 承認時点の人数</strong>（1.123.0）。<strong>参戦先の金庫</strong>から</td>
 </tr>
 <tr>
 <td>数える人</td>
@@ -4404,7 +4407,7 @@ Web 地図ではネザーの地図に描かれます</td>
 </tr>
 <tr>
 <td><strong>新しい構成員の加入受理</strong></td>
-<td><strong>✔ できます</strong></td>
+<td>✘（1.123.0 から）</td>
 <td>✘</td>
 </tr>
 <tr>
@@ -4597,7 +4600,7 @@ Web 地図ではネザーの地図に描かれます</td>
 </tr>
 <tr>
 <td>押すと</td>
-<td><strong>その場ですぐ移ります。</strong> 何度でも選び直せます</td>
+<td><strong>その場ですぐ移ります。</strong> 何度でも選び直せます。統合版は<strong>フォーム</strong>で出て、押すと移ったあと選び直せるように出し直されます（1.111.0）</td>
 </tr>
 <tr>
 <td>何もしなければ</td>
@@ -4640,7 +4643,7 @@ Web 地図ではネザーの地図に描かれます</td>
 </tr>
 <tr>
 <td>この1分の間</td>
-<td><strong>復活地点を選ぶ画面</strong>が出たままになります（下記）</td>
+<td><strong>復活地点を選ぶ画面</strong>が出たままになります（下記）。統合版は<strong>フォーム</strong>で、選ぶと ✔ が付いて出し直され、閉じても1秒ほどでまた出ます（1.111.0）</td>
 </tr>
 <tr>
 <td>復活する場所</td>
@@ -4721,7 +4724,12 @@ Web 地図ではネザーの地図に描かれます</td>
 <td>✘ <strong>使えません</strong></td>
 </tr>
 <tr>
-<td>組織ホームへの移動 / <code>/spawn</code></td>
+<td>組織ホームへの移動</td>
+<td>✔</td>
+<td>✘ 戦闘員は使えません（1.124.0。待っている間に開戦しても飛びません）</td>
+</tr>
+<tr>
+<td><code>/spawn</code></td>
 <td>✔</td>
 <td>✔</td>
 </tr>
@@ -4791,7 +4799,7 @@ Web 地図ではネザーの地図に描かれます</td>
 </section>
 <section class="chapter" id="ch10">
 <h1>10. ショップ・送金</h1>
-<div class="toc"><b>この章の内容</b><ul><li><a class="tj" data-t="ch10-s0" tabindex="0" role="link">10-1. ショップを作る</a></li><li><a class="tj" data-t="ch10-s1" tabindex="0" role="link">10-2. 看板とモード</a></li><li><a class="tj" data-t="ch10-s2" tabindex="0" role="link">10-3. ショップを操作する</a></li><li><a class="tj" data-t="ch10-s3" tabindex="0" role="link">10-4. 取引できないとき</a></li><li><a class="tj" data-t="ch10-s4" tabindex="0" role="link">10-5. 遠隔からは取引できません</a></li><li><a class="tj" data-t="ch10-s5" tabindex="0" role="link">10-6. ショップを探す</a></li><li><a class="tj" data-t="ch10-s6" tabindex="0" role="link">10-7. アイテム表示（陳列）</a></li><li><a class="tj" data-t="ch10-s7" tabindex="0" role="link">10-8. 取引履歴と通知</a></li><li><a class="tj" data-t="ch10-s8" tabindex="0" role="link">10-8b. オークション（競売）</a></li><li><a class="tj" data-t="ch10-s9" tabindex="0" role="link">10-9. 管理ショップ（チェスト式）</a></li><li><a class="tj" data-t="ch10-s10" tabindex="0" role="link">10-10. 送金</a></li><li><a class="tj" data-t="ch10-s11" tabindex="0" role="link">10-11. 紙幣（お金のアイテム化）</a></li><li><a class="tj" data-t="ch10-s12" tabindex="0" role="link">10-12. SHOP ワールド（区画を取って店を出す）</a></li><li><a class="tj" data-t="ch10-s13" tabindex="0" role="link">関連ページ</a></li></ul></div>
+<div class="toc"><b>この章の内容</b><ul><li><a class="tj" data-t="ch10-s0" tabindex="0" role="link">10-1. ショップを作る</a></li><li><a class="tj" data-t="ch10-s1" tabindex="0" role="link">10-2. 看板とモード</a></li><li><a class="tj" data-t="ch10-s2" tabindex="0" role="link">10-3. ショップを操作する</a></li><li><a class="tj" data-t="ch10-s3" tabindex="0" role="link">10-4. 取引できないとき</a></li><li><a class="tj" data-t="ch10-s4" tabindex="0" role="link">10-5. 遠隔からは取引できません</a></li><li><a class="tj" data-t="ch10-s5" tabindex="0" role="link">10-6. ショップを探す</a></li><li><a class="tj" data-t="ch10-s6" tabindex="0" role="link">10-7. アイテム表示（陳列）</a></li><li><a class="tj" data-t="ch10-s7" tabindex="0" role="link">10-8. 取引履歴と通知</a></li><li><a class="tj" data-t="ch10-s8" tabindex="0" role="link">10-8b. オークション（競売）</a></li><li><a class="tj" data-t="ch10-s9" tabindex="0" role="link">10-9. 管理ショップ（チェスト式）</a></li><li><a class="tj" data-t="ch10-s10" tabindex="0" role="link">10-10. 送金</a></li><li><a class="tj" data-t="ch10-s11" tabindex="0" role="link">10-11. 紙幣（お金のアイテム化）</a></li><li><a class="tj" data-t="ch10-s12" tabindex="0" role="link">10-12. SHOP ワールド（区画を取って店を出す）</a></li><li><a class="tj" data-t="ch10-s13" tabindex="0" role="link">10-13. 市場（値段が動く運営の取引所）</a></li><li><a class="tj" data-t="ch10-s14" tabindex="0" role="link">関連ページ</a></li></ul></div>
 <blockquote class="summary"><p><strong>この章の要点</strong></p>
 <ul>
 <li>通貨は EUR。チェスト・トラップチェスト・樽を殴るとショップになります。</li>
@@ -4800,6 +4808,7 @@ Web 地図ではネザーの地図に描かれます</td>
 <li>収納の中身をまとめて競りにかける「競売」モードもあります。</li>
 <li><code>/send</code> で送金、<code>/note</code> で紙幣にできます。</li>
 <li>店を出すための <strong>SHOP ワールド</strong>では、区画（1人1つ）を取って建てられます（10-12）。</li>
+<li><strong>市場</strong>の看板では、ほとんどの品を売り買いできます。値段は取引で決まり、毎回動きます（10-13）。</li>
 <li>数値は初期設定です。実際の値はゲーム内の GUI を見てください。</li>
 </ul>
 </blockquote>
@@ -5328,10 +5337,13 @@ GUIは1ページ28件で、下に 件数 / 売上 / 支出 / 差引 / 保持期�
 <ul>
 <li>空いている区画の真ん中にある<strong>「売り地」の看板を右クリック</strong>すると、確かめてから取れます。
 区画の中に立って <code>/eur plot</code>（<code>/eur</code> の「SHOP の区画」）を開き、左のボタンからも取れます。</li>
-<li>代金は <strong>30,000EUR</strong>、維持費は<strong>毎月1日に 5,000EUR</strong>（所持金から。取った月のぶんは代金に含みます）。区画は<strong>1人1つ</strong>までです。</li>
-<li>維持費を払えないと、<strong>猶予（7日）</strong>のあとに手放すことになります。猶予の間にお金が入れば、自動で払われます。
-持ち主が長くログインしないとき（組織のリーダーと同じ日数）も手放します。組織の維持費と同じ決まりです（2-8）。</li>
-<li>同じ画面の右のボタンから手放せます。払った代金と維持費は戻りません。</li>
+<li>代金は <strong>30,000EUR</strong>（所持金から）、維持費は<strong>毎月1日に 5,000EUR</strong>（取った月のぶんは代金に含みます）。区画は<strong>1人1つ</strong>までです。</li>
+<li>維持費は所持金からではなく、区画ごとの<strong>前払いの残高</strong>から払います（1.113.0）。<code>/eur plot</code> の画面の下の段（1か月分・上限まで・額を決めて）か
+<code>/eur plot charge &lt;金額|max&gt;</code> で、所持金から入れておきます。入れられるのは残高が <strong>20,000EUR</strong> になるまでです（1.114.0。1.113.0 は 30,000EUR）。
+⚠ 入れた残高は<strong>引き出せません</strong>。区画を手放しても（自分で・滞納・長くログインしない・運営）<strong>戻りません</strong>。</li>
+<li>毎月1日に残高が維持費に足りないと<strong>滞納</strong>になり（所持金からは取りません）、<strong>猶予（7日）</strong>のあとに手放すことになります。
+猶予の間に残高を入れれば、その場で払われます。持ち主が長くログインしないとき（組織のリーダーと同じ日数）も手放します。組織の維持費と同じ決まりです（2-8）。</li>
+<li>同じ画面の右のボタンから手放せます。払った代金・維持費と、前払いの残高は戻りません。</li>
 <li>手放した区画は<strong>元に戻ります</strong>（売り地の看板も戻ります）。建物・チェストの中身・置いた物は消え、ショップは畳まれます（ショップに預けていたお金は持ち主へ返ります）。
 元に戻している間は、その区画は取れません。</li>
 </ul>
@@ -5366,8 +5378,38 @@ GUIは1ページ28件で、下に 件数 / 売上 / 支出 / 差引 / 保持期�
 <li>兵器（車両・据え付けもの・迫撃砲・地雷・ドローン・自爆ベストなど）は使えません（17-1）。</li>
 <li>取られている区画には、ショップ（10-1）を作れます。home は設定できません。</li>
 </ul>
+<h2 id="ch10-s13"><span id="10-13"></span>10-13. 市場（値段が動く運営の取引所）</h2>
+<p>「<strong>[市場]</strong>」の看板を押すと開く、運営の取引所です（1.115.0）。看板 AdminShop の一種ですが、<strong>値段が決まっていません</strong>。
+売り買いのたびに値段が動き、よく買われる品は上がり、たくさん売られる品は下がります。どの看板も同じ市場につながっています。</p>
+<h3>使い方</h3>
+<ul>
+<li>看板を押すと一覧が開きます。上の段で分類（鉱物・建材・自然・食料・モブの落とし物・レッドストーン・道具・その他）を選び、品を押すと取引の画面です。</li>
+<li>取引の画面の2段目が<strong>買う</strong>（1・8・16・32・64・買えるだけ）、3段目が<strong>売る</strong>（1・8・16・32・64・手持ち全部）です。ボタンにその数での<strong>合計と1個あたり</strong>が出ます。</li>
+<li>一覧の下の段の「<strong>持ち物をまとめて売る</strong>」で、売れる品をまとめて見積もってから売れます。</li>
+<li><code>/eur market</code> で、どこからでも<strong>値段を見るだけ</strong>の画面が開きます（取引は看板から）。看板から離れすぎると取引できません。</li>
+<li><strong>統合版</strong>は、運営の設定しだいで（初期設定はチェストの画面）、看板を押すと（<code>/eur market</code> も）<strong>フォーム</strong>で開きます（1.116.0）。分類 → 品の一覧（ボタンに買う値と売る値）→ 取引（1・8・16・32・64個・買えるだけ・手持ち全部）の順に押します。「名前で探す」はチャットに品の名前の一部（日本語でも）を打ちます。取引の結果は次のフォームのいちばん上に出ます。</li>
+</ul>
+<h3>取引できる品</h3>
+<ul>
+<li><strong>新品と同じ物だけ</strong>です。名前・説明・エンチャント・傷・中身・染色・装飾などが付いた物は売れません（中身の入ったシュルカーボックスや、少しでも使った道具も売れません）。</li>
+<li>クリエでしか手に入らない物（スポーンエッグ・コマンドブロック・岩盤など）と、<strong>エンチャントの本・ポーション・効果付きの矢</strong>は扱いません。</li>
+<li>invポイントで買える品（看板 AdminShop）は、市場では買い取りません。</li>
+</ul>
+<h3>値段の決まり方</h3>
+<ul>
+<li>品ごとに<strong>相場（参考値）</strong>があり、取引のたびにその取引の値段のほうへ動きます。よく取引される品ほど動きにくく、取引の少ない品ほど大きく動きます。</li>
+<li>買う値は相場より高く、売る値は相場より安くなります（その差は、取引の少ない品ほど大きい）。<strong>まとめて売り買いするほど、1個あたりは不利</strong>になります（1個ずつ相場を動かしながら足すため）。</li>
+<li>市場には品ごとに<strong>在庫</strong>があり、在庫が増えるほど買取の値が下がります。<strong>上限まで埋まると買い取りません</strong>。上限は、よく買われる品ほど大きくなります。</li>
+<li>品切れの品の「買う」を押すと「<strong>欲しい人</strong>」に数えられ、品切れが続くと買取の値が少しずつ上がります。売れ残る品は少しずつ値下がりし、長く買われない在庫は少しずつ消えます（使われた扱い）。</li>
+<li>運営が市場を始めると、<strong>ほとんどの品が同じ値段（初期値 100EUR）から始まり</strong>、市場に少し在庫が置かれます（1.116.0）。そこから取引で上がり下がりします。
+エリトラ・ネザライト・ディスクなどの<strong>レアな品は最初は始めません</strong>。</li>
+<li><strong>まだ一度も取引されていない品</strong>（レアな品など）は、チェストショップでの取引の値段があればそこから始まります。無ければ、買取の値が小さい値から時間とともに上がっていき、<strong>最初に売られた値段</strong>で相場が決まります（欲しい人がいる品は、さらに上がっていきます）。</li>
+<li>値段の上がり下がりは<strong>毎秒少しずつ</strong>進み、市場の画面は開いたまま書き直されます（1.116.0）。</li>
+<li>短い時間に値段が大きく動いた品は、しばらく取引が止まります。</li>
+<li>市場のお金は、プレイヤーが買ったお金と運営が入れたお金だけです。市場のお金が少ないと買取の値が下がり、無くなると買い取りません。</li>
+</ul>
 <hr />
-<h2 id="ch10-s13">関連ページ</h2>
+<h2 id="ch10-s14">関連ページ</h2>
 <ul>
 <li>
 <ol start="13">
@@ -5719,7 +5761,7 @@ GUI の組織一覧や現在地の情報に出るもので、チャット・頭�
 </section>
 <section class="chapter" id="ch12">
 <h1>12. その他の機能</h1>
-<div class="toc"><b>この章の内容</b><ul><li><a class="tj" data-t="ch12-s0" tabindex="0" role="link">12-1. home と spawn</a></li><li><a class="tj" data-t="ch12-s1" tabindex="0" role="link">12-2. テレポートリクエスト（/tpa）</a></li><li><a class="tj" data-t="ch12-s2" tabindex="0" role="link">12-3. エンダーチェスト（/ec）</a></li><li><a class="tj" data-t="ch12-s3" tabindex="0" role="link">12-4. 招待と inv ポイント</a></li><li><a class="tj" data-t="ch12-s4" tabindex="0" role="link">12-5. 新規プレイヤー勧誘リワード</a></li><li><a class="tj" data-t="ch12-s5" tabindex="0" role="link">12-6. 組織宣伝（定期メッセージ）</a></li><li><a class="tj" data-t="ch12-s6" tabindex="0" role="link">12-7. 看板 AdminShop</a></li><li><a class="tj" data-t="ch12-s7" tabindex="0" role="link">12-8. ルーレット（カジノ）</a></li><li><a class="tj" data-t="ch12-s8" tabindex="0" role="link">12-9. 賞金首（Wanted）</a></li><li><a class="tj" data-t="ch12-s9" tabindex="0" role="link">12-10. ログアウト中の死体</a></li><li><a class="tj" data-t="ch12-s10" tabindex="0" role="link">12-11. 中央区・首都のビーコンの真上</a></li><li><a class="tj" data-t="ch12-s11" tabindex="0" role="link">12-12. 経験値ビン</a></li><li><a class="tj" data-t="ch12-s12" tabindex="0" role="link">12-13. ワールドの限定</a></li><li><a class="tj" data-t="ch12-s13" tabindex="0" role="link">12-14. 統合版（Bedrock）と GUI の操作</a></li><li><a class="tj" data-t="ch12-s14" tabindex="0" role="link">12-15. オンラインタイムチケット（/ott）</a></li><li><a class="tj" data-t="ch12-s15" tabindex="0" role="link">12-16. イメージマップ</a></li><li><a class="tj" data-t="ch12-s16" tabindex="0" role="link">12-17. 匍匐（ほふく）</a></li><li><a class="tj" data-t="ch12-s17" tabindex="0" role="link">関連ページ</a></li></ul></div>
+<div class="toc"><b>この章の内容</b><ul><li><a class="tj" data-t="ch12-s0" tabindex="0" role="link">12-1. home と spawn</a></li><li><a class="tj" data-t="ch12-s1" tabindex="0" role="link">12-2. テレポートリクエスト（/tpa・/tphere）</a></li><li><a class="tj" data-t="ch12-s2" tabindex="0" role="link">12-3. エンダーチェスト（/ec）</a></li><li><a class="tj" data-t="ch12-s3" tabindex="0" role="link">12-4. 招待と inv ポイント</a></li><li><a class="tj" data-t="ch12-s4" tabindex="0" role="link">12-5. 新規プレイヤー勧誘リワード</a></li><li><a class="tj" data-t="ch12-s5" tabindex="0" role="link">12-6. 組織宣伝（定期メッセージ）</a></li><li><a class="tj" data-t="ch12-s6" tabindex="0" role="link">12-7. 看板 AdminShop</a></li><li><a class="tj" data-t="ch12-s7" tabindex="0" role="link">12-8. ルーレット（カジノ）</a></li><li><a class="tj" data-t="ch12-s8" tabindex="0" role="link">12-9. 賞金首（Wanted）</a></li><li><a class="tj" data-t="ch12-s9" tabindex="0" role="link">12-10. ログアウト中の死体</a></li><li><a class="tj" data-t="ch12-s10" tabindex="0" role="link">12-11. 中央区・首都のビーコンの真上</a></li><li><a class="tj" data-t="ch12-s11" tabindex="0" role="link">12-12. 経験値ビン</a></li><li><a class="tj" data-t="ch12-s12" tabindex="0" role="link">12-13. ワールドの限定</a></li><li><a class="tj" data-t="ch12-s13" tabindex="0" role="link">12-14. 統合版（Bedrock）と GUI の操作</a></li><li><a class="tj" data-t="ch12-s14" tabindex="0" role="link">12-15. オンラインタイムチケット（/ott）</a></li><li><a class="tj" data-t="ch12-s15" tabindex="0" role="link">12-16. イメージマップ</a></li><li><a class="tj" data-t="ch12-s16" tabindex="0" role="link">12-17. 匍匐（ほふく）</a></li><li><a class="tj" data-t="ch12-s17" tabindex="0" role="link">12-18. エンダーマン</a></li><li><a class="tj" data-t="ch12-s18" tabindex="0" role="link">12-19. 瀕死と蘇生</a></li><li><a class="tj" data-t="ch12-s19" tabindex="0" role="link">関連ページ</a></li></ul></div>
 <blockquote class="summary"><p><strong>この章の要点</strong></p>
 <ul>
 <li><code>/home</code> <code>/spawn</code> <code>/tpa</code> <code>/ec</code> は、その場で<strong>15秒待って</strong>から実行します。</li>
@@ -5764,7 +5806,7 @@ GUI は <code>/eur</code> → home / spawn からも開けます。コマンド�
 <li><strong>戦争に参戦している間は、移動の判定だけ 16チャンク</strong>に広がります（<code>/sethome</code> は3チャンクのまま）。組織ホームは対象外です。</li>
 </ul>
 <h3>置けるのは world だけ</h3>
-<p><code>/sethome</code> で登録できるのは <code>world</code> の中だけです（1.107.0）。ネザー・エンド・moon・exodus などでは登録できず、前に登録した home がそこにあっても<strong>移動できません</strong>（座標は消えません）。<code>/home</code> を打つ場所はどのワールドでも構いません。組織ホームも <code>world</code> だけです（2-6. 組織ホーム）。</p>
+<p><code>/sethome</code> で登録できるのは <code>world</code> と、資源ワールド（<code>resource_world</code>・<code>resource_nether</code>・<code>resource_end</code>。1.112.3）の中だけです。ほかのネザー（<code>world_nether</code>）・エンド（<code>world_the_end</code>）・moon・exodus などでは登録できず、前に登録した home がそこにあっても<strong>移動できません</strong>（座標は消えません）。<code>/home</code> を打つ場所はどのワールドでも構いません。組織ホームも <code>world</code> だけです（2-6. 組織ホーム）。</p>
 <h3>枠は3つ。2つめ以降は home チケット</h3>
 <div class="tablewrap"><table>
 <thead>
@@ -5815,8 +5857,8 @@ GUI は <code>/eur</code> → home / spawn からも開けます。コマンド�
 <code>/tpa</code> とエンダーチェストが使えるのは<strong>戦争準備中まで</strong>で、待ち時間は <strong>15秒のまま</strong>です。</p>
 <p>戦闘ログアウト対策（<code>protection.combat-logout.seconds</code>）は同梱の設定では <strong>0 ＝無効</strong>です。運営が1以上にすると、ダメージを受けてからその秒数のあいだ <code>/tpa</code> <code>/spawn</code> <code>/home</code> <code>/sethome</code> とエンダーチェストが使えません。</p>
 <hr />
-<h2 id="ch12-s1"><span id="12-2"></span>12-2. テレポートリクエスト（/tpa）</h2>
-<p>相手の許可を取ってから、その人のところへ飛べます。コマンドは 13-1. プレイヤー用コマンド、GUI は <code>/tpa</code> で開きます。</p>
+<h2 id="ch12-s1"><span id="12-2"></span>12-2. テレポートリクエスト（/tpa・/tphere）</h2>
+<p>相手の許可を取ってから、その人のところへ飛べます。<code>/tphere</code> は逆に、<strong>相手に自分のところへ来てもらう</strong>リクエストです。コマンドは 13-1. プレイヤー用コマンド、GUI は <code>/tpa</code> で開きます（相手の頭を左クリックで <code>/tpa</code>、右クリックか Q キーで <code>/tphere</code>）。</p>
 <p>流れは <strong>承認 → 10秒の猶予（両方動ける） → 15秒の待機（両方動けない） → テレポート</strong> です。</p>
 <div class="tablewrap"><table>
 <thead>
@@ -5828,7 +5870,7 @@ GUI は <code>/eur</code> → home / spawn からも開けます。コマンド�
 <tbody>
 <tr>
 <td>飛ぶのは</td>
-<td>リクエストを<strong>送った側</strong>。行き先は<strong>飛ぶ瞬間の</strong>相手の位置</td>
+<td><code>/tpa</code> はリクエストを<strong>送った側</strong>、<code>/tphere</code> は<strong>承認した側</strong>。行き先は<strong>飛ぶ瞬間の</strong>相手の位置</td>
 </tr>
 <tr>
 <td>送れる相手</td>
@@ -5851,6 +5893,7 @@ GUI は <code>/eur</code> → home / spawn からも開けます。コマンド�
 <ul>
 <li>⚠ <strong>承認したあとの15秒は、受ける側も動けません。</strong> どちらかが 動く・殴られる・死ぬ・抜ける と中止され、相手にも理由が出ます。</li>
 <li><strong>既にテレポート待機中の人は送れません。</strong></li>
+<li><strong>同じ相手へは1件ずつです。</strong>返事が来るか期限が切れるまで、<code>/tpa</code> も <code>/tphere</code> も送り直せません（承認されて飛ぶまでの間も同じ）。</li>
 <li>届いている数が2件以上なら、<code>/tpaccept</code> <code>/tpdeny</code> を引数なしで打つと GUI が開きます。GUI に並ぶのは<strong>最大7件</strong>で、残りは <code>/tpa list</code> で見ます。</li>
 </ul>
 <hr />
@@ -6179,6 +6222,8 @@ GUI は <code>/eur</code> → home / spawn からも開けます。コマンド�
 <hr />
 <h2 id="ch12-s8"><span id="12-9"></span>12-9. 賞金首（Wanted）</h2>
 <p>特定のプレイヤーに賞金を掛けられます。その人を倒した人が全額を受け取ります。</p>
+<p><strong>賞金が無くても、プレイヤーを倒すと、倒された人の所持金の 10% が倒した人へ移ります</strong>（1.131.0。端数は切り捨て・金庫は対象外）。
+倒した人の見分けは賞金と同じで、<strong>とどめを刺したプレイヤー</strong>だけです（落下・溶岩・MOB で死んだときは移りません）。試合の中では移りません。</p>
 <div class="tablewrap"><table>
 <thead>
 <tr>
@@ -6336,8 +6381,9 @@ GUI は <code>/eur</code> → home / spawn からも開けます。コマンド�
 <li><strong>統合版からはシフトクリックが届きません。</strong>車両の補給・地中貫通型地雷の TNT・ドローンの積み込み・オンラインタイムチケットの預け入れの画面では、
 <strong>シフトクリックの代わりにドロップ（アイテムを捨てる操作）</strong>を使います。枠から1個だけ捨てても、スタックごと捨てても同じです。タップはクリックと同じです。</li>
 <li>ルーレットの賭けはすべてボタンなので、タッチ操作でも遊べます。</li>
-<li>起動時に <code>/tpa</code> <code>/tpaccept</code> <code>/tpdeny</code> <code>/home</code> <code>/sethome</code> <code>/spawn</code> <code>/setspawn</code> <code>/ec</code> の名前をこのプラグインが引き取ります（統合版はコマンド一覧に無いものを弾くため）。</li>
+<li>起動時に <code>/tpa</code> <code>/tpaccept</code> <code>/tpdeny</code> <code>/tphere</code> <code>/tpahere</code> <code>/home</code> <code>/sethome</code> <code>/spawn</code> <code>/setspawn</code> <code>/ec</code> の名前をこのプラグインが引き取ります（統合版はコマンド一覧に無いものを弾くため）。</li>
 <li>ログアウト中の死体とルーレットのディーラーは、<strong>統合版の人のプレイヤー一覧（タブ）にだけ</strong>並びます。</li>
+<li>市場の看板は、運営の設定しだいで、統合版では<strong>フォーム</strong>で開きます → 10-13. 市場</li>
 </ul>
 <hr />
 <h2 id="ch12-s14"><span id="12-15"></span>12-15. オンラインタイムチケット（<code>/ott</code>）</h2>
@@ -6444,8 +6490,25 @@ GUI は <code>/eur</code> → home / spawn からも開けます。コマンド�
 <li>統合版（Bedrock）にもしゃがみボタンがあるので、<strong>同じ操作で使えます</strong>。</li>
 <li>使いたくないときは <code>/eur crawl</code> で切れます（<strong>初期設定は入</strong>）。</li>
 </ul>
+<hr />
+<h2 id="ch12-s17"><span id="12-18"></span>12-18. エンダーマン</h2>
+<p>エンダーマンは<strong>ブロックを拾いません</strong>（サーバー全体・どのワールドでも。1.116.0）。前から持っていたブロックを置くことはあります。</p>
+<hr />
+<h2 id="ch12-s18"><span id="12-19"></span>12-19. 瀕死と蘇生</h2>
+<p><strong>プレイヤーに倒されると</strong>（銃・兵器・爆発や、殴られた直後に落ちた・燃えたなども含む）、その場では死なずに<strong>瀕死</strong>になります（1.117.0）。試合・戦争の中でも同じです。</p>
+<ul>
+<li>その場にあなたの姿の体が寝そべり、あなたは<strong>透明</strong>になって、その体の<strong>頭のところ</strong>で這いつくばります。攻撃が当たるのは頭のところです。</li>
+<li>動けず、鈍足と盲目が付き、体力は 20 で<strong>回復しません</strong>。攻撃・物を使う・コマンド（話すものは使えます）もできません。</li>
+<li><strong>180秒</strong>たつか、体力が尽きるか、<strong>ジャンプかしゃがむ</strong>と死にます。死亡のメッセージや、試合・戦争での数え方は、そこで初めて出ます。抜けても死にます。</li>
+<li>ほかの人が体のそば（<strong>2ブロック</strong>以内）で<strong>しゃがみ続ける（10秒）</strong>と<strong>蘇生</strong>します。体力 0.1・弱体化 II（10秒）で起き上がります。</li>
+<li>蘇生してから<strong>30秒</strong>の間にまた倒されると、瀕死にならずに死にます。</li>
+<li>瀕死の間は<strong>持ち物が空</strong>になります（1.120.3。防具・左手も）。<strong>蘇生すると元の場所へ返ります</strong>。
+    そのまま死ぬと、ふつうに死んだときと同じく落ちます（持ち物を残す決まりのときは残ります）。サーバーが止まっても、次に入ったときに返ります。</li>
+<li>瀕死の間は、壁に頭がかかっても<strong>窒息しません</strong>。水の中でも溺れません（1.120.3。動けないので逃げられないため）。</li>
+<li>自分で倒れた・モブや落下など人に関係なく倒れた・不死のトーテムを持っているときは、瀕死になりません。</li>
+</ul>
 
-<h2 id="ch12-s17">関連ページ</h2>
+<h2 id="ch12-s19">関連ページ</h2>
 <ul>
 <li>
 <ol start="13">
@@ -6602,6 +6665,11 @@ GUI は <code>/eur</code> → home / spawn からも開けます。コマンド�
 <td><code>/eurtpaccept</code> <code>/eurtpdeny</code></td>
 <td>承認する / 拒否する</td>
 </tr>
+<tr>
+<td><code>/tphere &lt;相手&gt;</code></td>
+<td><code>/tpahere</code> <code>/eurtphere</code></td>
+<td>相手に、自分のところへ来てもらうよう頼む（承認されると相手が飛ぶ）</td>
+</tr>
 </tbody>
 </table></div>
 <ul>
@@ -6666,11 +6734,19 @@ GUI は <code>/eur</code> → home / spawn からも開けます。コマンド�
 </tr>
 <tr>
 <td><code>/eur plot</code>（<code>plots</code>）</td>
-<td><strong>SHOP ワールドの区画</strong>の画面（立っている区画を取る・自分の区画・手放す）→ 10-12</td>
+<td><strong>SHOP ワールドの区画</strong>の画面（立っている区画を取る・自分の区画・手放す・維持費の前払いの残高を入れる）→ 10-12</td>
+</tr>
+<tr>
+<td><code>/eur plot charge &lt;金額|max&gt;</code></td>
+<td>区画の維持費の<strong>前払いの残高</strong>へ所持金から入れる（<code>max</code> で上限まで。⚠ 引き出せません）→ 10-12</td>
 </tr>
 <tr>
 <td><code>/eur adminshop</code></td>
-<td>看板 AdminShop の作成・一覧・撤去（運営向け）</td>
+<td>看板 AdminShop の作成・一覧・撤去（運営向け）。<code>/eur adminshop market [分類]</code> で<strong>市場の看板</strong>（どのワールドにも置けます）→ 10-13</td>
+</tr>
+<tr>
+<td><code>/eur market [分類]</code></td>
+<td><strong>市場の値段を見るだけ</strong>の画面（取引は市場の看板から）→ 10-13</td>
 </tr>
 </tbody>
 </table></div>
@@ -7236,7 +7312,7 @@ GUI の「在籍中は脱退できません」は古い表示です → 2-11</p>
 <tbody>
 <tr>
 <td><strong><code>[新興組織]</code></strong></td>
-<td>設立から7日（有料で最大4週間）。布告を受けず、自分からもできない</td>
+<td>設立から4週間（有料で通算6週間まで）。布告を受けず、自分からもできない</td>
 </tr>
 <tr>
 <td><strong><code>[臨時]</code></strong></td>
@@ -7279,7 +7355,7 @@ GUI の「在籍中は脱退できません」は古い表示です → 2-11</p>
 </tr>
 <tr>
 <td><strong>義勇兵</strong></td>
-<td>よその戦争へ味方として参戦する仕組み。1人 1,000EUR を双方が払う。⚠ 申請料は返らず、戦勝報酬も出ない</td>
+<td>よその戦争へ味方として参戦する仕組み。1人 50,000EUR を双方が払う。⚠ 申請料は返らず、戦勝報酬も出ない</td>
 </tr>
 <tr>
 <td><strong>義勇兵の方針</strong></td>
@@ -7973,13 +8049,13 @@ op（<code>eur.lock.bypass</code>）はすべての保護を無視します。
 </section>
 <section class="chapter" id="ch17">
 <h1>17. 兵器・戦闘用の道具</h1>
-<div class="toc"><b>この章の内容</b><ul><li><a class="tj" data-t="ch17-s0" tabindex="0" role="link">17-1. 手に入れ方の早見表</a></li><li><a class="tj" data-t="ch17-s1" tabindex="0" role="link">17-2. 自爆ベスト</a></li><li><a class="tj" data-t="ch17-s2" tabindex="0" role="link">17-3. 自爆滑空ベスト</a></li><li><a class="tj" data-t="ch17-s3" tabindex="0" role="link">17-4. ソニックブーム</a></li><li><a class="tj" data-t="ch17-s4" tabindex="0" role="link">17-5. ウィザーヘッドランチャー</a></li><li><a class="tj" data-t="ch17-s5" tabindex="0" role="link">17-6. ドローン</a></li><li><a class="tj" data-t="ch17-s6" tabindex="0" role="link">17-7. ジャミングブロック（ドローン対策）</a></li><li><a class="tj" data-t="ch17-s7" tabindex="0" role="link">17-8. 迫撃砲</a></li><li><a class="tj" data-t="ch17-s8" tabindex="0" role="link">17-9. 対砲兵レーダー</a></li><li><a class="tj" data-t="ch17-s9" tabindex="0" role="link">17-10. 対人地雷</a></li><li><a class="tj" data-t="ch17-s10" tabindex="0" role="link">17-11. 前線基地</a></li><li><a class="tj" data-t="ch17-s11" tabindex="0" role="link">17-12. 地中貫通型地雷</a></li><li><a class="tj" data-t="ch17-s12" tabindex="0" role="link">17-13. 車両</a></li><li><a class="tj" data-t="ch17-s13" tabindex="0" role="link">17-14. 固定兵器</a></li><li><a class="tj" data-t="ch17-s14" tabindex="0" role="link">17-15. HESCO（ブロックと壁）</a></li><li><a class="tj" data-t="ch17-s15" tabindex="0" role="link">17-16. 採掘阻害装置</a></li><li><a class="tj" data-t="ch17-s16" tabindex="0" role="link">17-17. 地雷散布ヘリ</a></li><li><a class="tj" data-t="ch17-s17" tabindex="0" role="link">17-18. 地雷原処理車</a></li><li><a class="tj" data-t="ch17-s18" tabindex="0" role="link">関連ページ</a></li></ul></div>
+<div class="toc"><b>この章の内容</b><ul><li><a class="tj" data-t="ch17-s0" tabindex="0" role="link">17-1. 手に入れ方の早見表</a></li><li><a class="tj" data-t="ch17-s1" tabindex="0" role="link">17-2. 自爆ベスト</a></li><li><a class="tj" data-t="ch17-s2" tabindex="0" role="link">17-3. 自爆滑空ベスト</a></li><li><a class="tj" data-t="ch17-s3" tabindex="0" role="link">17-4. ソニックブーム</a></li><li><a class="tj" data-t="ch17-s4" tabindex="0" role="link">17-5. ウィザーヘッドランチャー</a></li><li><a class="tj" data-t="ch17-s5" tabindex="0" role="link">17-6. ドローン</a></li><li><a class="tj" data-t="ch17-s6" tabindex="0" role="link">17-7. ジャミングブロック（ドローン対策）</a></li><li><a class="tj" data-t="ch17-s7" tabindex="0" role="link">17-8. 迫撃砲</a></li><li><a class="tj" data-t="ch17-s8" tabindex="0" role="link">17-9. 対砲兵レーダー</a></li><li><a class="tj" data-t="ch17-s9" tabindex="0" role="link">17-10. 対人地雷</a></li><li><a class="tj" data-t="ch17-s10" tabindex="0" role="link">17-11. 前線基地</a></li><li><a class="tj" data-t="ch17-s11" tabindex="0" role="link">17-12. 地中貫通型地雷</a></li><li><a class="tj" data-t="ch17-s12" tabindex="0" role="link">17-13. 車両</a></li><li><a class="tj" data-t="ch17-s13" tabindex="0" role="link">17-14. 固定兵器</a></li><li><a class="tj" data-t="ch17-s14" tabindex="0" role="link">17-15. HESCO（ブロックと壁）</a></li><li><a class="tj" data-t="ch17-s15" tabindex="0" role="link">17-16. 採掘阻害装置</a></li><li><a class="tj" data-t="ch17-s16" tabindex="0" role="link">17-17. 地雷散布ヘリ</a></li><li><a class="tj" data-t="ch17-s17" tabindex="0" role="link">17-18. 地雷原処理車</a></li><li><a class="tj" data-t="ch17-s18" tabindex="0" role="link">17-19. 第二次大戦の車両と上陸艇</a></li><li><a class="tj" data-t="ch17-s19" tabindex="0" role="link">関連ページ</a></li></ul></div>
 <blockquote class="summary"><p><strong>この章の要点</strong></p>
 <ul>
 <li>作業台で作れるのは自爆ベスト2種だけ。ほかの道具も持っていれば誰でも使え、自爆すると階級に関わらず所持品と経験値を全て失います。</li>
 <li>ドローンは電波が 0 になると墜ちます。ジャミングブロックが弱点です。</li>
 <li>迫撃砲は 45〜<strong>1024</strong>ブロック先へ撃ちます。砲口が塞がると暴発します。</li>
-<li>対人地雷はろうそくの姿で、近づくと爆発します。対戦車地雷は<strong>乗り物にだけ</strong>反応します。地中貫通型地雷は真下のブロックが壊されると、壊れ方を問わず爆発し、周りを黒曜石で固めます。地雷原は<strong>地雷原処理車</strong>のロケット弾でまとめて片付けられます（17-18）。</li>
+<li>対人地雷はろうそくの姿で、人や乗り物が近づくと爆発します。対戦車地雷は<strong>乗り物にだけ</strong>反応します。地中貫通型地雷は真下のブロックが壊されると、壊れ方を問わず爆発し、周りを黒曜石で固めます。地雷原は<strong>地雷原処理車</strong>のロケット弾でまとめて片付けられます（17-18）。</li>
 <li>前線基地は建物ごと建ちます。戦争中は<strong>建てた組織の復活地点</strong>になります。</li>
 <li>車両と固定兵器は乗って撃てます。車両は<strong>かまどの燃料</strong>で動き、装甲には<strong>爆発・火・水没・徹甲弾・1回40より大きいダメージ</strong>しか効かず、その<strong>40ぶんは装甲が受け止めます</strong>。さらに<strong>装甲の厚さより貫通の低い弾は弾かれます</strong>。爆発する弾は車両にはあまり効かず、<strong>車両を壊すのは徹甲弾とミサイル</strong>です。</li>
 <li>動く車両はキットを使ってから<strong>15秒</strong>、固定兵器と迫撃砲は<strong>10秒</strong> 動かずに待つと置けます（1.97.0）。<strong>HESCO</strong>（砂を詰めた箱。ブロックと壁）も置けます。キットを持って地面を見ると、<strong>置かれる場所が粒で見えます</strong>（緑＝置ける・赤＝置けない。1.98.0）。</li>
@@ -8717,11 +8793,11 @@ op（<code>eur.lock.bypass</code>）はすべての保護を無視します。
 <tbody>
 <tr>
 <td>近づかれた</td>
-<td><strong>3ブロック以内</strong>（地雷のブロックを1つ目として数えます）に人が入ると、カチッと鳴ってすぐ爆発します</td>
+<td><strong>3ブロック以内</strong>（地雷のブロックを1つ目として数えます）に人が入ると、カチッと鳴ってすぐ爆発します。<strong>乗り物も同じです</strong>（1.112.0。車体の当たり判定から2ブロック以内に来ると爆発します。乗り物には爆風だけが当たり、戦車の底を抜くのは対戦車地雷です。誰も乗っていない止めてある乗り物では爆発しません）</td>
 </tr>
 <tr>
 <td>⚠ 傷が付いた</td>
-<td>TNT を入れた地雷は<strong>少しでもダメージを受けると誘爆</strong>します。矢・殴打・炎・ドローンの機銃、どれでも同じです</td>
+<td>TNT を入れた地雷は<strong>少しでもダメージを受けると誘爆</strong>します。矢・殴打・炎・ドローンの機銃、どれでも同じです（<strong>しゃがんで殴ったときだけは誘爆しません</strong> → 下の「取り外し」）</td>
 </tr>
 <tr>
 <td>壊された</td>
@@ -8744,7 +8820,7 @@ op（<code>eur.lock.bypass</code>）はすべての保護を無視します。
 <tbody>
 <tr>
 <td>入れる TNT</td>
-<td><strong>8個</strong>。入れ終えてから <strong>4秒</strong>で効き始めます</td>
+<td><strong>4個</strong>。入れ終えてから <strong>4秒</strong>で効き始めます</td>
 </tr>
 <tr>
 <td>反応する距離</td>
@@ -8753,6 +8829,10 @@ op（<code>eur.lock.bypass</code>）はすべての保護を無視します。
 <tr>
 <td>威力</td>
 <td><strong>6.0</strong>（TNT は 4.0）。⚠ <strong>地形は壊さず、火も付きません</strong>。<strong>落ちているアイテムも消えません</strong>（1.109.0。対戦車地雷も同じ）</td>
+</tr>
+<tr>
+<td>受けるダメージ</td>
+<td><strong>最大 48</strong>（1.112.0。防具で減る前の値）。中心の近くでも 48 までで、離れるほど減ります。上限は難易度で変わりません。爆風の届く距離は変わりません。<strong>乗り物へのダメージは4分の1</strong>です（1.112.1。真下で爆発しても21ほど。トラックの耐久は100）</td>
 </tr>
 <tr>
 <td>爆発のあと</td>
@@ -8766,14 +8846,24 @@ op（<code>eur.lock.bypass</code>）はすべての保護を無視します。
 </table></div>
 <h3>取り外しと見つけ方</h3>
 <p><strong>TNT がそろう前なら掘って回収できます。</strong> 地雷本体と、入れた TNT が返ってきます。
-そろったあとは触れません——掘ろうとした時点で誘爆します。</p>
+そろったあとは、しゃがまずに触る（殴る・掘る）と誘爆します。</p>
+<p><strong>しゃがんで素手で殴ると、爆発させずに外せます</strong>（1.111.0）。素手の1発は 1 ダメージで、<strong>合わせて10ダメージ</strong>
+（しっかり振りかぶって10発ほど）で外れ、地雷本体と入れた TNT が落ちます。</p>
+<ul>
+<li>しゃがんでいれば、剣などを持って殴っても爆発しません。ただし<strong>外れるのは素手のときだけ</strong>です。</li>
+<li>しゃがんでも<strong>掘っては外せません</strong>（掘れずに止まります）。</li>
+<li>殴るのを<strong>15秒</strong>やめると、そこまでのぶんは無かったことになります。音が高くなっていくほど外れかけです（この道具は文字を出しません）。</li>
+<li>効いている地雷は近づくと爆発するので、反応する距離（地雷のブロックを1つ目として3ブロック）の<strong>すぐ外</strong>から手を伸ばして殴ってください（手が届くのは3ブロックほどです）。</li>
+<li>矢・弾・爆風は、しゃがんだ人が撃ったものでも今までどおり誘爆します。</li>
+<li>⚠ 1.110.0 までは、しゃがんで殴る・掘るとその場で外れました。</li>
+</ul>
 <p>見つけたら<strong>離れたところから撃つ</strong>のが安全です。矢が刺さればそれだけで誘爆します。
 広く撒かれた地雷原は、<strong>地雷原処理車</strong>のロケット弾で幅15ブロック・長さ150ブロックの通り道をまとめて片付けられます（→ 17-18）。
 色を変えられるので、<strong>置いてある場所に不自然なろうそく</strong>があれば疑ってください。</p>
 <h3>対戦車地雷</h3>
 <p>同じろうそくの姿で、<strong>人では爆発せず、乗り物が乗ったときだけ爆発する</strong>地雷です（持っている間は灰色のろうそく）。
 置き方・染め方・外し方・誘爆は対人地雷とまったく同じですが、<strong>TNT は12個</strong>要ります。
-逆に、<strong>対人地雷は乗り物では爆発しません</strong>。</p>
+対人地雷も 1.112.0 から乗り物で爆発しますが、乗り物には爆風だけです（1.111.0 までは乗り物では爆発しませんでした）。</p>
 <div class="tablewrap"><table>
 <thead>
 <tr>
@@ -9203,7 +9293,7 @@ op（<code>eur.lock.bypass</code>）はすべての保護を無視します。
 <tr><td>MBT（主力戦車）</td><td>4</td><td>500</td><td>あり（厚さ220）</td><td>125mm 砲（徹甲弾・破片弾）・7.62mm 機銃</td></tr>
 <tr><td>LUV（小型汎用車）</td><td>6</td><td>160</td><td>なし</td><td>機銃（射手の体は外に出ます）</td></tr>
 <tr><td>対空砲（自走式）</td><td>6</td><td>200</td><td>なし</td><td>12.7mm 機関銃（徹甲弾。車体の水平から上へ15度〜真上近くまで。地上は狙えません）</td></tr>
-<tr><td>対空ミサイル車両（自走式。1.100.0）</td><td>4</td><td>220</td><td>あり（厚さ30）</td><td><strong>対空専用</strong>: 25mm 対空機関砲（近接信管）・赤外線誘導の対空ミサイル（4発込め・予備4発）・発煙弾。どちらも<strong>左右の砲・発射機から交互に</strong>撃ちます。<strong>飛んでいるヘリとドローンにしか当たりません</strong>（下の「対空専用の武器・赤外線誘導・フレア」）</td></tr>
+<tr><td>対空ミサイル車両（自走式。1.100.0）</td><td>4</td><td>220</td><td>あり（厚さ30）</td><td>12.7mm 機関銃（徹甲弾。1.120.5 から。<strong>地上の目標も撃てます</strong>）・赤外線誘導の対空ミサイル（4発込め・予備4発。<strong>対空専用</strong>）・発煙弾。どちらも<strong>左右の砲・発射機から交互に</strong>撃ちます。<strong>ミサイルは飛んでいるヘリとドローンにしか当たりません</strong>（下の「対空専用の武器・赤外線誘導・フレア」）</td></tr>
 <tr><td>地雷原処理車（1.106.0）</td><td>2</td><td>250</td><td>あり（厚さ50）</td><td>地雷原処理用ロケット弾（<strong>地雷原に通り道を開けます</strong> → 17-18。2発込め・予備2発）・発煙弾</td></tr>
 <tr><td>トラック</td><td>9</td><td>100</td><td>なし</td><td>なし</td></tr>
 <tr><td>対砲兵レーダー</td><td>3</td><td>100</td><td>なし</td><td>なし（<strong>迫撃砲弾を捕まえて撃った場所を割り出します</strong> → 17-9）</td></tr>
@@ -9215,6 +9305,8 @@ op（<code>eur.lock.bypass</code>）はすべての保護を無視します。
 </tbody>
 </table></div>
 <p>APC と IFV は<strong>水陸両用</strong>です（下の「水」）。</p>
+<p><strong>統合版</strong>では、車両は<strong>1台を1体の模型</strong>で表示します（1.111.0。サーバーに入るときに車両の見た目のリソースパックを受け取ります）。
+向き・傾き・砲塔・砲身・回転翼も動きます。</p>
 <h3>置く・片付ける</h3>
 <p>キットを持って<strong>地面へ右クリック</strong>すると、向いている方向へ車両が置かれます（ゴムボート・APC・IFV は<strong>水面</strong>へ向けても置けます）。
 車体の大きさぶんの空きが要り、<strong>ほかの車両と重なる場所</strong>・前線基地の範囲・中央区の土台・復活地点には置けません。
@@ -9444,7 +9536,7 @@ op（<code>eur.lock.bypass</code>）はすべての保護を無視します。
 <p>IFV でワイヤー誘導ミサイルを使うときは、<strong>着弾まで止まっていてください</strong>。動くと操縦できなくなります。
 一人で運転と射撃をしている運転手が撃ったミサイルも、同じように誘導できます。</p>
 <h3>対空専用の武器・赤外線誘導・フレア（1.100.0）</h3>
-<p><strong>対空ミサイル車両の武器と、対空ヘリの空対空ミサイルは、飛んでいるヘリとドローンにしか当たりません</strong>（対空専用）。
+<p><strong>対空ミサイル車両の対空ミサイルと、対空ヘリの空対空ミサイルは、飛んでいるヘリとドローンにしか当たりません</strong>（対空専用。対空ミサイル車両の機関砲は 1.120.5 から 12.7mm 機関銃で、地上も撃てます）。
 地上の車両・人・MOB は弾が素通りし、地面に当たっても爆発で何も傷めません（地形も壊しません）。<strong>着陸しているヘリにも当たりません</strong>。
 その代わり、対空ミサイル車両の 25mm の弾は<strong>空の目標のそばを通ると破裂します</strong>（近接信管。2.5ブロックまで近づいたら）。
 対空ミサイル車両は空で敵のヘリを落とす役に絞った車両なので、<strong>地上の敵には何もできません</strong>。装甲も薄く（厚さ30）、戦車・IFV・対戦車兵の良い的です。
@@ -9535,7 +9627,6 @@ op（<code>eur.lock.bypass</code>）はすべての保護を無視します。
 <tr><td>対戦車ミサイル</td><td>直撃 230＋爆発（半径4・中心で150）</td><td>車両へと同じ</td><td>1</td><td>10秒</td><td>TNT（24個で1発）</td></tr>
 <tr><td>ワイヤー誘導ミサイル</td><td>直撃 230＋爆発（半径4・中心で140）</td><td>車両へと同じ</td><td>1（<strong>予備3発まで</strong>）</td><td>11秒</td><td>TNT（24個で1発）</td></tr>
 <tr><td>空対地ミサイル</td><td>直撃 150＋爆発（半径4・中心で110）</td><td>車両へと同じ</td><td>1</td><td>10秒</td><td>TNT（24個で1発）</td></tr>
-<tr><td>25mm 対空機関砲（対空ミサイル車両。<strong>対空専用</strong>・毎分600発・左右交互）</td><td>20＋爆発（半径3.5・中心で22。空の目標のそば2.5ブロックで破裂）</td><td>当たりません（ドローンは墜ちます）</td><td>80</td><td>5秒</td><td>銅インゴット（1個で3発）</td></tr>
 <tr><td>対空ミサイル（赤外線誘導。対空ミサイル車両）</td><td>爆発（半径8・中心で300。そば2.5ブロックで破裂。<strong>どのヘリも1発</strong>）</td><td>当たりません</td><td>4（予備4発）</td><td>12秒</td><td>TNT（16個で1発）</td></tr>
 <tr><td>空対空ミサイル（赤外線誘導。対空ヘリ）</td><td>爆発（半径7・中心で320。そば2.5ブロックで破裂。<strong>どのヘリも1発</strong>）</td><td>当たりません</td><td>4（予備4発）</td><td>5秒</td><td>TNT（12個で1発）</td></tr>
 <tr><td>地雷原処理用ロケット弾（地雷原処理車。→ 17-18）</td><td>直撃 15＋爆薬の列（列から9ブロックまで。列の上で40）</td><td>直撃 40＋爆薬の列の上で 120</td><td>2（予備2発）</td><td>30秒</td><td>TNT（64個で1発）</td></tr>
@@ -9547,7 +9638,7 @@ op（<code>eur.lock.bypass</code>）はすべての保護を無視します。
 弾は車両の画面の武器の枠で補給します。枠をクリックで1回ぶん（機銃は1個・12.7mm は4個・25mm は4個・125mm の弾は12個・ミサイルは24個・ロケット弾は12個・対空の 25mm は1個・赤外線誘導のミサイルは16個（空対空は12個）・地雷原処理用ロケット弾は64個）、シフトクリックで入るだけ、アイテムを掴んでクリックで掴んでいるぶん、
 持ち物からシフトクリックでそのスタックのぶんが入ります。<strong>統合版は、武器と発煙弾の枠をタップすると1回ぶん、ドロップ（アイテムを捨てる操作）すると入るだけ入ります</strong>（シフトクリックが使えないため）。持ち物の弾をドロップすると、そのスタックのぶんが入ります。
 ⚠ <strong>乗っている間は、弾・発煙弾・フレア・燃料を入れられません</strong>（1.102.0。修理と同じく降りて、外から車両の画面を開いて入れます）。
-⚠ <strong>弾・発煙弾・フレア・地雷を積めるのは修理所のそばだけです</strong>（修理所から8ブロック以内。1.108.3。試合と同じ決まり）。<strong>燃料と、固定兵器・迫撃砲の弾はどこでも入れられます</strong>。
+⚠ <strong>弾・発煙弾・フレア・地雷を積めるのは修理所のそばだけです</strong>（修理所から12ブロック以内。1.108.3。試合と同じ決まり。1.112.1 までは8ブロック）。<strong>燃料と、固定兵器・迫撃砲の弾はどこでも入れられます</strong>。
 1.108.2 までは、試合の外ならどこでも積めました。
 <strong>外に居る人は、人の乗っている車両にも入れられます</strong>（味方に補給してもらえます）。固定兵器も同じです。乗ったままでも画面は開けます（状態・席の移動・降りる・手持ちの物を使う・積荷）。
 名前の付いたアイテムは弾になりません（17-1。説明だけが付いた物は弾になります）。
@@ -9612,7 +9703,7 @@ CAS ヘリの空対地ミサイルはそれより弱く<strong>1発 約194</stro
 </ul>
 <p>つまり「トラックを小銃で撃っても車はなかなか壊れないが、<strong>中の人は死ぬ</strong>」という形です。
 止めたいのが車なら爆発物か徹甲弾、人なら普通の銃で構いません。</p>
-<p>装甲付きの車両の中にいる人は、<strong>外からの攻撃・爆発・火を受けません</strong>（車両が代わりに受けます）。
+<p>装甲付きの車両の中にいる人は、<strong>外からの攻撃・爆発・火を受けません</strong>（車両が代わりに受けます）。座っている間は<strong>耐性 V</strong> が付き、ほかのダメージもほぼすべて受けません（1.112.0。左上に印が出ます）。<strong>降りる・体が外に出る席へ移る・車両が壊れると外れます</strong>（壊れたときは、外れてから倒れるだけのダメージが入ります。座る前から付いていた耐性は、降りると残りの時間ぶん戻ります）。
 <strong>鈍足と盲目も付きません</strong>（乗る前から付いていたものも、座ると消えます）。
 車内からは銃を撃てません。APC の上の機銃手や、装甲の無い車両の乗員は<strong>体が外に出ているので、撃たれます</strong>。
 <strong>兵士（NPC）の弾も同じです</strong>（1.99.0・holiguns r3.59.0）: 装甲の車体（と HESCO）で止まり、プレイヤーの弾と同じく車体に当たります（小銃の弾は装甲に弾かれます）。装甲の無い車体は抜けます。
@@ -9652,7 +9743,7 @@ CAS ヘリの空対地ミサイルはそれより弱く<strong>1発 約194</stro
 <p>乗ったまま・燃えている間（水で消せます）・車両が<strong>攻撃を受けてから・撃ってから30秒</strong>の間・
 自分が交戦状態の間は、修理できません。</p>
 <p><strong>直せるのは修理所のそばだけです</strong>（1.108.2。試合と同じ決まり）。<strong>修理所</strong>（据え付けもの。キットから置けます）から
-<strong>8ブロック以内</strong>に立って「修理する」を押してください。修理所は誰のものでも使えます。
+<strong>12ブロック以内</strong>（1.112.2。それまでは8ブロック）に立って「修理する」を押してください。修理所は誰のものでも使えます。
 <strong>据え付けもの（固定兵器・迫撃砲・弾薬箱・修理所・HESCO）は、修理所が無くてもどこでも直せます</strong>（1.108.3。自分では動けず、修理所まで運べないため）。
 見るのは修理を始めるときだけで、途中で修理所が壊れても修理は続きます。
 ⚠ 1.108.1 までは、試合の外ならどこでも直せました。試合の中の決まり（自分のチームのスポーン地点のまわりでも直せる・弾薬箱や修理所や HESCO は直せない）は
@@ -9818,8 +9909,61 @@ TNT の入った地雷は誘爆し（手柄は地雷を置いた人のまま）�
 <p>⚠ 爆薬の列は<strong>敵も味方も選びません</strong>。並んでから2秒のうちに通り道から離れてください（列から9ブロック以内に居ると巻き込まれます）。
 車体に囲われた席に乗っている人は傷みません。</p>
 <p>試合では、壊されたときのチケットが <strong>10</strong>、スポーン設備から湧かせるときの既定は「10分後から15分ごとに1台」です（→ 18章）。湧いた車両は弾が満タンです。</p>
+<h2 id="ch17-s18"><span id="17-19"></span>17-19. 第二次大戦の車両と上陸艇</h2>
+<p>ノルマンディー上陸作戦の頃の車両・固定兵器・上陸艇です（1.125.0）。<strong>当時の性能に寄せてあり</strong>、同じ役の今の車両（17-13）より装甲も砲も弱く、遅めです。
+乗り方・撃ち方・燃料・修理・装甲の決まりは、ほかの車両と同じです（17-13）。</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>車両</th>
+<th>乗員</th>
+<th>耐久</th>
+<th>装甲</th>
+<th>武装・特徴</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>M4 シャーマン（中戦車）</td><td>5</td><td>300</td><td>あり（厚さ90）</td><td>75mm 戦車砲（徹甲弾・榴弾）・.30口径機関銃（同軸）。約43km/h</td></tr>
+<tr><td>IV号戦車（中戦車）</td><td>5</td><td>280</td><td>あり（厚さ80）</td><td>7.5cm 戦車砲（徹甲弾・榴弾。M4 の砲より貫通が高い）・MG34（同軸）。約40km/h</td></tr>
+<tr><td>III号突撃砲</td><td>4</td><td>300</td><td>あり（厚さ100）</td><td>7.5cm 砲（徹甲弾・榴弾）。<strong>砲塔が回りません</strong>——砲は正面から左右に<strong>10度ずつ</strong>しか向かないので、車体ごと向けます。屋根の盾付きの MG34 は全周に回ります（屋根の上の射手）</td></tr>
+<tr><td>M3 ハーフトラック</td><td>9</td><td>200</td><td>あり（厚さ15。薄い）</td><td>.50口径 M2 重機関銃（運転席の上のリング。全周）。屋根が無く、乗っている人の体は外に出ます。前は車輪なので、走っている間だけ曲がれます。約68km/h</td></tr>
+<tr><td>Sd.Kfz.251（ハーフトラック）</td><td>9</td><td>190</td><td>あり（厚さ15。薄い）</td><td>MG34（兵員室の前の盾付き。左右に50度ずつ）。屋根が無く、乗っている人の体は外に出ます。約58km/h</td></tr>
+<tr><td>ジープ</td><td>5</td><td>110</td><td>なし</td><td>.30口径機関銃（後ろの柱。全周）。約97km/h</td></tr>
+<tr><td>LCVP（上陸用舟艇）</td><td>17</td><td>160</td><td>あり（厚さ10。薄い）</td><td>.30口径機関銃2挺（後ろの左右の銃座）・<strong>前の扉</strong>。水の上を走ります（約43km/h）。舷の中に立つ兵員は、小銃・機銃の弾からは舷で守られます（爆風は受けます）</td></tr>
+<tr><td>LCT（戦車揚陸艇）</td><td>11</td><td>600</td><td>あり（厚さ15。薄い）</td><td>20mm エリコン機関砲2門・<strong>前の扉</strong>・<strong>車両を4台まで載せる甲板</strong>。水の上を走ります（約26km/h）</td></tr>
+<tr><td>沿岸砲（手動）・沿岸砲（自動）（15cm。据え付け）</td><td>2</td><td>500</td><td>あり（厚さ100）</td><td>15cm 砲（徹甲弾・榴弾）。遠くまで届き、榴弾は半径8の爆発です。砲は正面から左右に60度ずつ、<strong>ゆっくり</strong>向きます。砲盾の後ろは開いていて、乗っている人の体は外に出ます。2種類は形も性能も同じで、<strong>自動</strong>のほうは試合で射手が居ない間、自分で敵へ向いて撃ちます（乗れば手で撃てます）</td></tr>
+<tr><td>対舟艇障害物（チェコの針鼠。据え付け）</td><td>—</td><td>120</td><td>あり（厚さ1000）</td><td>武器なし。<strong>上陸艇と車両を止めます</strong>（人は通り抜けられます）。弾はどれも弾き、<strong>爆発でしか壊れません</strong></td></tr>
+</tbody>
+</table></div>
+<h3>前の扉（LCVP・LCT）</h3>
+<p>上陸艇の舳先はまるごと<strong>扉（ランプ）</strong>です。運転席のホットバーの「<strong>前の扉</strong>」で、下ろす／上げるを切り替えます（LCVP は2秒・LCT は3秒で動きます）。
+扉は下の蝶番を軸に前へ倒れ、浜へ乗り上げた船なら先が地面に届きます。
+<strong>下ろしている間に降りると、扉の先（前）へ出ます</strong>（上げているときは、ほかの車両と同じく横へ出ます）。</p>
+<p>上陸艇は<strong>水の上専用</strong>です。浜へ乗り上げると陸ではほとんど進めないので、そこで扉を下ろして降ります。</p>
+<h3>LCT に車両を載せる</h3>
+<p>LCT の甲板（壁に囲まれた平らな所）には、<strong>車輪か履帯の車両を4台まで</strong>載せられます。</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>項目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>載せる</td><td>LCT の扉を下ろし、車両を運転して<strong>扉を上り、甲板へ乗り入れます</strong>。甲板に乗った車両は「載った」ことになります。
+4台載っている甲板には、それ以上乗り入れられません</td></tr>
+<tr><td>運ぶ</td><td>載っている車両は、LCT が進む・曲がると<strong>一緒に動きます</strong>（扉は上げておけます）。載っている車両の中に乗ったままでも構いません</td></tr>
+<tr><td>載っている間</td><td><strong>撃てません</strong>（引き金を引くと「揚陸艇に載っている間は撃てません」と出ます）。<strong>ダメージは受けます</strong></td></tr>
+<tr><td>降ろす</td><td>LCT を浜へ乗り上げて扉を下ろし、車両を運転して<strong>扉を下って</strong>浜へ出ます</td></tr>
+<tr><td>LCT が壊れたら</td><td>載っていた車両は足場を失って<strong>落ちます</strong>（水の上なら沈み、深い所では水没で傷みます。LCT が壊れた爆風も受けます）</td></tr>
+</tbody>
+</table></div>
+<p>⚠ ヘリ・船・固定兵器は載せられません。人は甲板の上を歩けないので、LCT の席（後ろの甲板の乗員の席など）に乗ってください。</p>
+<h3>強さの目安</h3>
+<p>M4 シャーマンは主力戦車の 125mm 徹甲弾2発で壊れます。M4 の 75mm 徹甲弾は主力戦車の装甲（厚さ220）をほとんど抜けません（1発およそ18）。
+IV号戦車の 7.5cm 砲は M4 の装甲を抜け、M4 の 75mm 砲は IV号戦車の装甲を抜けますが、III号突撃砲の正面（厚さ100）には少し減ります（17-13 の「装甲の厚さと貫通」）。</p>
 <hr />
-<h2 id="ch17-s18">関連ページ</h2>
+<h2 id="ch17-s19">関連ページ</h2>
 <ul>
 <li>
 <ol start="9">
@@ -9956,6 +10100,8 @@ TNT の入った地雷は誘爆し（手柄は地雷を置いた人のまま）�
 <li>⚠ 自分でチームを選ぶ設定のとき、<strong>選ばずに画面を閉じると試合から外れます</strong>（このときチケットは減りません）。
     統合版は、チームを選ぶ画面が<strong>統合版の画面（フォーム）</strong>で、<strong>2秒ほど遅れて</strong>出ます（1.99.3。ボタンでチームを選びます。
     <code>/eur</code> の「試合」からチームを変えるときも同じです）。出てすぐ閉じてしまったときは外れずに、もう一度出ます（3回まで）。</li>
+<li><strong>運営がチームを決めた人は、自分では変えられません</strong>（1.114.0。選ぶ画面と <code>/eur</code> の「試合」に「チームは運営が決めています」と出ます）。
+    抜けて入り直しても同じチームに入ります。決めたチームは試合が終わると消えます。</li>
 <li>試合中の情報（チーム・チケット・キットの選び直し）は <code>/eur</code> の<strong>「試合」</strong>から見られます。上のボスバーにも、各チームのチケットと拠点の色が出ます。</li>
 <li><strong>画面の右側に一覧</strong>が出ます（残り時間・各チームのチケット・<strong>拠点ごとの持ち主と座標</strong>・自分の撃破と死亡）。自分のチームには <code>▸</code> が付きます。<strong>試合に出ているあいだだけ</strong>で、終わると消えます。</li>
 <li><strong>戦略地図</strong>（マップ全体を真上から写した地図）が持ち物に入ります。→ <a href="#18-11">18-11</a></li>
@@ -10040,7 +10186,11 @@ TNT の入った地雷は誘爆し（手柄は地雷を置いた人のまま）�
 <tr><td>共通の選択制</td><td>全員が同じ選択肢の中から<strong>自分で選びます</strong></td></tr>
 </tbody>
 </table></div>
-<p>選択制のときは<strong>湧くたびに選び直せます</strong>（選び直したぶんは<strong>次に湧くときから</strong>）。</p>
+<p>選択制のときは、<strong>倒れたあとと最初の出撃の出撃先の画面に「キットを選ぶ」</strong>があります（1.129.0。統合版はフォームのボタン）。選ぶとその出撃から使います。
+最初の出撃は、「最初の出撃までの秒数」が 0 でも選択制なら画面を出して 30 秒待ちます（「今すぐ出撃」ですぐ出られます）。
+出ている間に <code>/eur</code> の「試合」から選び直したぶんは<strong>次に湧くときから</strong>です。
+統合版は <code>/eur</code> の「試合」を<strong>タップ</strong>するとキットを選ぶフォームが出ます（1.111.0。チームも変えられる試合では、先にチームかキットかを選びます。
+1.110.0 までは右クリックでしか開けず、統合版からは選べませんでした）。</p>
 <p><strong>持ち物は落としません。</strong> 死ぬたびに、キットのとおりに作り直されます。拾った物や取った補給も、死ぬと無くなります。</p>
 <h2 id="ch18-s4"><span id="18-5"></span>18-5. チケット</h2>
 <p>どの種目も<strong>チケット制</strong>です。チーム（個人戦なら自分）に配られたチケットが、味方を失うたびに減り、<strong>0 になった側が負け</strong>です。
@@ -10053,7 +10203,6 @@ TNT の入った地雷は誘爆し（手柄は地雷を置いた人のまま）�
 </tr>
 </thead>
 <tbody>
-<tr><td>兵士</td><td>1</td></tr>
 <tr><td>プレイヤーの死亡</td><td>2</td></tr>
 <tr><td>固定機銃</td><td>2</td></tr>
 <tr><td>APC・輸送ヘリ・LUV・トラック・ゴムボート・固定戦車砲・固定レーザー誘導ミサイル・固定対空砲・固定12.7mm機関砲・迫撃砲・採掘阻害装置</td><td>5</td></tr>
@@ -10063,6 +10212,7 @@ TNT の入った地雷は誘爆し（手柄は地雷を置いた人のまま）�
 <tr><td>占領地点を<strong>取った</strong></td><td><strong>+50（増えます）</strong></td></tr>
 </tbody>
 </table></div>
+<p><strong>兵士（NPC）が倒れても、チケットは減りません</strong>（1.126.0。すべての試合。指揮下の兵士も、自分で動く兵士も）。</p>
 <p><strong>占領地点だけは逆向き</strong>です。取られた側は<strong>減りません</strong>。代わりに<strong>取った側が増えます</strong>。拠点を押さえ続けるほど粘れる、ということです。</p>
 <p>⚠ 運営が<strong>項目ごとに値を変えたり、数えないようにしたり</strong>できます。実際の値はその試合の設定を見てください。</p>
 <h2 id="ch18-s5"><span id="18-6"></span>18-6. 種目</h2>
@@ -10082,12 +10232,29 @@ TNT の入った地雷は誘爆し（手柄は地雷を置いた人のまま）�
 取り進めるほど先が分かり、<strong>一度出た拠点は取られても出たまま</strong>です。上のバーと BlueMap は全員が見るので、<strong>両チームに出ている拠点だけ</strong>が出ます。
 見えない拠点は、<strong>中に入っても拠点のバーが出ず</strong>、そこでの中立化・占領の<strong>知らせ（画面の中央・音）も出ません</strong>（1.97.0。拠点の知らせは 1.106.1 からチャットには出しません。試合に出ていない人には、両チームに出ている拠点のことだけ）</td></tr>
 <tr><td><strong>殲滅戦</strong></td><td>占領地点はありません。チケットが尽きた側は<strong>もう復帰できません</strong>。最後まで残ったほうが勝ちです</td></tr>
-<tr><td><strong>旗取り (CTF)</strong></td><td>占領地点が1つだけの制圧戦。時間切れのときは<strong>その旗を押さえていた側</strong>が勝ちます（どちらも押さえていなければチケットの多いほう）。<strong>チケットが尽きた側は、旗を押さえていても負け</strong>です（1.99.0）</td></tr>
+<tr><td><strong>旗取り (CTF)</strong></td><td>占領地点が1つだけの制圧戦。時間切れのときは<strong>その旗を押さえていた側</strong>が勝ちます（どちらも押さえていなければチケットの多いほう）。<strong>チケットが尽きた側は、旗を押さえていても負け</strong>です（1.99.0）。
+旗を押さえられていても、制圧のように<strong>チケットが毎秒減ることはありません</strong>（1.111.0）</td></tr>
+<tr><td><strong>多拠点旗取り (CTFV2)</strong></td><td>旗取り (CTF) の拠点を<strong>2つ以上</strong>にしたものです（1.120.0）。制圧と違って<strong>順番はなく、どの拠点からでも取れます</strong>。
+時間切れのときは<strong>いちばん多くの拠点を押さえていた側</strong>が勝ちます（同じ数なら、どこも押さえていなければ、チケットの多いほう）。
+チケットが尽きた側は、拠点を押さえていても負けです。拠点を取られていても<strong>チケットが毎秒減ることはありません</strong>（2チームのときだけ）</td></tr>
+<tr><td><strong>防衛戦</strong></td><td>（1.125.0。2チームのときだけ）制圧 (AAS) と同じく並んだ占領地点を順番に取りますが、<strong>最初はすべての拠点をチーム1（防衛）が持っています</strong>。
+取りにかかれるのは<strong>チーム2（攻撃）だけ</strong>で、奥（チーム2の側）から順に中立化 → 占領していきます。<strong>取られた拠点は取り返せません</strong>（チーム1は中立になった拠点も取れません。中に居座って進みを止めることはできます）。
+<strong>どちらもブリードしません</strong>。チーム2が全部取ればその場でチーム2の勝ち、<strong>時間切れまで守ればチーム1の勝ち</strong>、どちらかのチケットが尽きたら残ったほうの勝ちです</td></tr>
+<tr><td><strong>上陸作戦 (D-DAY)</strong></td><td>（1.125.0。2チームのときだけ）決まりは防衛戦と同じで、ノルマンディー上陸の流れが付きます。
+<strong>チーム2の最初の出撃は海の上陸艇（LCVP・LCT）の席</strong>です。上陸艇は準備時間が明けると<strong>自動で浜へ進み</strong>、乗り上げたら前の扉を下ろして乗っている人と兵士を降ろします（LCT の甲板の M4 は扉から浜へ走り出て止まります。乗るのはプレイヤーです）。2回目からの出撃はチームのスポーン地点からです（上陸艇が出たあとに入った人も）。
+両チームに<strong>命令を受けずに自分で動く兵士</strong>が出ます（holiguns。既定 1チーム 128人。防衛側は前線にいちばん近い前線基地か本拠地（占領地点のまわりには出ません。1.127.0〜1.128.0）、攻撃側は上陸艇。どちらも、いま取り合っている拠点へ向かいます）。上陸艇の LCVP は<strong>プレイヤーと兵士が乗る艇</strong>（艇ごとに6席はプレイヤーのために空けます）と、<strong>兵士だけが乗る艇</strong>（プレイヤーは乗れません。1.126.1）の2種類です。最初に乗る攻撃側の兵士は、兵士だけの艇から埋めて、上陸艇の席のぶんまでです。
+<strong>倒れた兵士は1分後に補充されます</strong>（1.126.0。防衛側は前線基地か本拠地、攻撃側は海岸線（1.127.0））。見た目はチームごとに選べます（→ <a href="#18-14">18-14</a>）。
+元のマップに置いた沿岸砲は、試合ではチーム1の物になります（置いた人は「システム」）。<strong>沿岸砲（自動）は射手がいなくても攻撃側を撃ち</strong>（精度は低め。弾は尽きず、人は乗れません。1.125.3）、<strong>沿岸砲（手動）は防衛側の人が乗って撃ちます</strong>（1.125.2）。
+<strong>海岸線</strong>（波打ち際）の範囲には<strong>対舟艇障害物</strong>が、<strong>浜辺</strong>の範囲には<strong>対人・対戦車地雷</strong>が自動で散らされます（置いた人はシステム。地雷はどちらのチームにも反応します）。
+攻撃側の出撃は、最初の上陸艇のあとは<strong>海岸線のどこか</strong>からです（1.127.0。出撃先で「本拠地」を選んでも海岸線）。攻撃側の車両の湧き（チームの車両の設定）も海岸線です。
+<strong>出撃してから10秒は無敵</strong>（両チーム。秒数は「上陸作戦の設定」で変えられます）、湧いた車両と LCT の戦車は<strong>プレイヤーが乗るまで壊れません</strong>（1.127.0）。攻撃側には決めた秒数ごとに<strong>艦砲支援</strong>が付きます（いま攻撃側が取りにかかる拠点のまわりへ落ちます。落ちる前に音が鳴ります。味方にも当たります）。
+設定はプリセットの画面の「上陸作戦の設定」（左の縁）で、海の湧き場所・上陸地点（どちらも2つの角）・上陸艇の数・LCT 1隻の戦車・兵士の数・艦砲支援を決めます。車両は → <a href="guide-17-weapons.html#17-19">17-19</a></td></tr>
 <tr><td><strong>デスマッチ</strong></td><td>占領地点はありません。<strong>K/D（倒した数 ÷ 倒された数）</strong>がいちばん高いほうが勝ちです。時間切れか、<strong>どこかのチケットが尽きたとき</strong>に終わります（尽きても復帰はできます）。チケットが尽きて終わったときは、<strong>尽きていない側</strong>が勝ちです（1.99.0）</td></tr>
 </tbody>
 </table></div>
 <h2 id="ch18-s6"><span id="18-7"></span>18-7. 占領地点</h2>
-<p>制圧 (AAS)・ランダム制圧 (RAAS)・旗取り (CTF) で使います（RAAS は自動で作るので、置く必要はありません）。拠点は<strong>チーム1のスポーン地点から数えた順</strong>に並んでいます。</p>
+<p>制圧 (AAS)・ランダム制圧 (RAAS)・旗取り (CTF)・多拠点旗取り (CTFV2) で使います（RAAS は自動で作るので、置く必要はありません）。拠点は<strong>チーム1のスポーン地点から数えた順</strong>に並んでいます。
+多拠点旗取り (CTFV2) だけは順番がなく、下の「順番にしか取れません」は当てはまりません（拠点は2つ以上・上限32）。</p>
 <ul>
 <li><strong>順番にしか取れません。</strong> チーム1は手前から、チーム2は奥から。<strong>飛び越しては取れません</strong>。
     <strong>手前の拠点が中立のあいだは（敵に中立化された自分の拠点も）、その先の拠点は占領も中立化もできません。</strong>
@@ -10098,9 +10265,10 @@ TNT の入った地雷は誘爆し（手柄は地雷を置いた人のまま）�
     <strong>色はいまの持ち主</strong>、中立は白。<strong>誰かが取りかかっていると、その色で点滅します</strong>ので、
     近くに居れば「押されている」と分かります。拠点の高さの範囲の外には出ません（どこまで登ると範囲外か分かります）。</li>
 <li><strong>中に入るとボスバーが出ます</strong>（拠点名・持ち主・取りかけの割合・速さ・中に居る味方と敵の人数）。取りにかかれないときは、その理由もそこに出ます。</li>
-<li><strong>死んで復帰を待っているあいだ（瀕死）は人数に入りません。</strong> ボスバーも消えます。</li>
+<li><strong>死んで復帰を待っているあいだは人数に入りません。</strong> ボスバーも消えます。</li>
+<li><strong>瀕死（倒れて蘇生を待っている）の人も人数に入りません</strong>（1.122.0。それまでは倒れたまま拠点を取れました）。ボスバーも出ません。</li>
 <li><strong>乗り物に乗っている人も人数に入りません</strong>（1.89.0）。取るときも守るときも、<strong>降りて自分の足で</strong>入ってください。</li>
-<li><strong>ドローンを飛ばしている人は、発進した所に立っている身代わりで数えます</strong>（1.101.0）。機体で拠点は取れません（→ <a href="#18-15">18-15</a>）。</li>
+<li><strong>ドローンを飛ばしている人は人数に入りません</strong>（1.122.0。機体の下でも、発進した所でも）。取るときも守るときも、降ろしてから自分の足で入ってください（→ <a href="#18-15">18-15</a>）。</li>
 <li>取ると、<strong>取った側のチケットが増えます</strong>（初期設定 +50）。</li>
 </ul>
 <h3>敵の拠点は二段階（中立化 → 占領）</h3>
@@ -10195,7 +10363,7 @@ TNT の入った地雷は誘爆し（手柄は地雷を置いた人のまま）�
 <li><strong>敵の基地では出ません。</strong></li>
 </ul>
 <h2 id="ch18-s8"><span id="18-9"></span>18-9. 修理所と補給</h2>
-<p>試合では、車両を直したり<strong>弾</strong>を入れたりできるのは<strong>修理所のまわり8ブロック</strong>と、
+<p>試合では、車両を直したり<strong>弾</strong>を入れたりできるのは<strong>修理所のまわり12ブロック</strong>（1.112.2。それまでは8ブロック）と、
 <strong>自分のチームのスポーン地点のまわり（設備範囲。既定 半径64の四角）</strong>です（1.88.0。陣地の中はどこでも修理所と同じ。敵の陣地では使えません）。</p>
 <ul>
 <li>⛽ <strong>燃料だけはどこでも入れられます</strong>（1.78.0）。弾が空の車両はまだ盾として使えますが、
@@ -10210,9 +10378,13 @@ TNT の入った地雷は誘爆し（手柄は地雷を置いた人のまま）�
 <li>修理所そのものは<strong>誰も壊せません</strong>（建てた本人でも）。</li>
 <li>スポーン地点のそばのチェスト・樽は<strong>補給</strong>です。中の物は<strong>いくら取ってもなくなりません</strong>（1.89.0 から<strong>開いたまま</strong>、取った次の瞬間に元へ戻ります）。
     チームの補給の中身が決めてあれば、<strong>補給チェストは自動で置かれます</strong>（1.88.0。整地のあとも置き直し、壊せず、消えても置き直されます）。</li>
+<li>補給チェストは<strong>1チームにいくつでも</strong>置けて、1つずつ<strong>名前</strong>が付いています（1.118.0。たとえば「弾薬」「医療」）。
+    開いた画面の題に名前が出て、<strong>開いたチェストの中身</strong>が出ます。運営が座標を決めたものは、スポーン地点から離れた所にも置かれます。
+    <strong>よそのチームの補給チェストは開けません。</strong></li>
 </ul>
 <h3>補給箱（時間ごとにたまる）</h3>
-<p>スポーン地点のそばには、もうひとつ<strong>補給箱</strong>（樽）が自動で置かれます。こちらは<strong>本物の中身</strong>で、<strong>決まった時間ごとに少しずつ足されます</strong>。</p>
+<p>スポーン地点のそばには、<strong>補給箱</strong>（樽）も自動で置かれます。こちらは<strong>本物の中身</strong>で、<strong>決まった時間ごとに少しずつ足されます</strong>。
+補給チェストと同じく、1チームにいくつでも置けて、1つずつ名前が付いています（1.118.0。樽の名前に出ます）。</p>
 <div class="tablewrap"><table>
 <thead>
 <tr>
@@ -10228,8 +10400,11 @@ TNT の入った地雷は誘爆し（手柄は地雷を置いた人のまま）�
 </tbody>
 </table></div>
 <ul>
-<li>補給チェスト・補給箱の中身は、プリセットの<strong>チームの画面</strong>で決めます（補給チェストは 14・補給箱は 23 の枠。持ち物の画面に並べて閉じると保存）。
-    <strong>中身の一式に名前を付けて取っておき、どのプリセットのどのチームへも読み込めます</strong>（1.99.0。<strong>補給のプリセット</strong>。チームの画面の 22 が補給チェスト・24 が補給箱。
+<li>補給チェスト・補給箱は、プリセットの<strong>チームの画面</strong>から一覧を開いて決めます（補給チェストは 14・補給箱は 23 の枠。1.118.0）。
+    一覧の「足す」で名前を付けて1つ足し、1つずつの画面で<strong>名前・中身・置く場所</strong>を決めます
+    （中身は持ち物の画面に並べて閉じると保存。置く場所は「いまの自分の足もと」の座標か、自動＝スポーン地点のそば。「消す」は2回押すと消えます）。
+    中身が空のものは試合で置かれません。</li>
+<li><strong>中身の一式に名前を付けて取っておき、どのプリセットのどのチームの、どの補給チェスト・補給箱へも読み込めます</strong>（1.99.0。<strong>補給のプリセット</strong>。1つずつの画面の 14。
     「いまの中身を保存」で名前を付け、一覧を押すとその中身に置き換わります。「消す」を入れて2回押すと消えます）。</li>
 <li>開くと、次の補給まであと何秒かがアクションバーに出ます。</li>
 <li><strong>味方の箱しか開けません。</strong></li>
@@ -10240,7 +10415,8 @@ TNT の入った地雷は誘爆し（手柄は地雷を置いた人のまま）�
 <li><strong>持ち物は落としません。</strong> 決められた秒数（初期設定60秒）待つと、キットのとおりに作り直されて湧き直します。</li>
 <li><strong>死亡画面は出ません。</strong> 倒れるとすぐ<strong>チームのスポーン地点</strong>で湧き直り、そのまま<strong>真っ暗なまま動けない状態</strong>で待ちます（戦争の復帰待ちと同じ手触りです）。あと何秒かはアクションバーに出ます。
 1.86 までは<strong>倒れた場所</strong>で待っていたので、その場で続けて撃たれていました（1.87.0 で直しました。個人戦はふだんの湧き場所で待ちます）。</li>
-<li>待っているあいだ、<strong>どこから出直すかを選ぶ画面</strong>が開きます。選べるのは<strong>おまかせ</strong>・<strong>本拠地（チームのスポーン地点）</strong>・<strong>使える前線基地</strong>です。閉じてももう一度開きます。時間が来るまでに選ばなければ「おまかせ」です。</li>
+<li>待っているあいだ、<strong>どこから出直すかを選ぶ画面</strong>が開きます。選べるのは<strong>おまかせ</strong>・<strong>本拠地（チームのスポーン地点）</strong>・<strong>使える前線基地</strong>です。閉じてももう一度開きます。時間が来るまでに選ばなければ「おまかせ」です。
+    統合版は<strong>フォーム</strong>で出ます（1.111.0。選ぶと ✔ が付いて出し直されます）。</li>
 <li>前線基地は<strong>味方のもので、壊れておらず、敵に押さえられていない</strong>ものだけ選べます（選んだ基地が待っている間に使えなくなったら、おまかせに戻ります → <a href="#18-8">18-8</a>）。</li>
 <li><strong>試合が始まったとき・途中から入ったときも同じ画面が出ます</strong>（1.89.0。1.99.0 から<strong>試合の始まりと、使える前線基地が無いときも</strong>）。スポーン地点で<strong>最大10秒（初期設定）</strong>待つあいだに出撃先を選べます（アクションバーは「出撃まで ○秒」）。
     このときだけ画面に<strong>「今すぐ出撃」</strong>があり、押すと待たずに選んだ出撃先へ出ます（倒されたあとの待ちは切り上げられません）。待っているあいだに前線基地が使えるようになれば、画面に出てきます。
@@ -10293,7 +10469,8 @@ TNT の入った地雷は誘爆し（手柄は地雷を置いた人のまま）�
 <p><strong>拠点には番号が付きます。</strong> <strong>自分のチームの陣地に近いほうから 1、2、3…</strong> と数えます。
 敵チームからは逆向きに数えるので、どちらのチームでも<strong>「1 が自陣に近い」</strong>で読めます。
 拠点どうしは<strong>薄い線で結んであります</strong>——制圧戦は手前から順にしか取れないので、
-線をたどれば<strong>次にどこへ行けばよいか</strong>が分かります。</p>
+線をたどれば<strong>次にどこへ行けばよいか</strong>が分かります。
+番号と線が出るのは<strong>制圧 (AAS)・ランダム制圧 (RAAS) だけ</strong>です。旗取り (CTF)・多拠点旗取り (CTFV2) では、番号の代わりに<strong>拠点の名前の札</strong>（押さえているチームの色の旗）が出て、線は引きません（1.120.1）。</p>
 <p>試合が始まった直後は地形を写している途中で、地図の左上に <code>42%</code> のような数字が出ます。
 写し終えるとその数字は消えます（同じマップの2回目からは、写す時間はかかりません）。
 ふつうは数十秒で終わります。
@@ -10349,7 +10526,7 @@ Chunky などで<strong>生成してある所はそのまま載ります</strong
 <tr><td><strong>固定12.7mm機関砲</strong></td><td>108個</td><td>20秒</td><td>12.7mm 機関砲（徹甲弾）</td></tr>
 <tr><td><strong>迫撃砲</strong></td><td>135個</td><td>20秒</td><td>据えたら<strong>砲を右クリック</strong>で諸元、TNT を持って右クリックで装填（→ <a href="guide-17-weapons.html#17-8">17-8</a>）</td></tr>
 <tr><td><strong>固定対空砲</strong></td><td>135個</td><td>25秒</td><td>空を狙う 12.7mm 機関銃</td></tr>
-<tr><td><strong>修理所</strong></td><td>648個</td><td>25秒</td><td>まわり8ブロックで車両を直し、弾を積めます（燃料はどこでも入ります）</td></tr>
+<tr><td><strong>修理所</strong></td><td>648個</td><td>25秒</td><td>まわり12ブロックで車両を直し、弾を積めます（燃料はどこでも入ります）</td></tr>
 <tr><td><strong>固定戦車砲</strong></td><td>189個</td><td>30秒</td><td>125mm 滑腔砲（徹甲弾・破片弾）</td></tr>
 <tr><td><strong>固定レーザー誘導ミサイル</strong></td><td>216個</td><td>30秒</td><td>照準を合わせ続けた点へ飛ぶ対戦車ミサイル</td></tr>
 <tr><td><strong>採掘阻害装置</strong></td><td>216個</td><td>25秒</td><td>動かしている間、まわり48ブロックの全員に採掘速度低下 II（燃料で動かす。1.104.0。→ <a href="guide-17-weapons.html#17-16">17-16</a>）</td></tr>
@@ -10487,7 +10664,12 @@ Chunky などで<strong>生成してある所はそのまま載ります</strong
 </tr>
 </thead>
 <tbody>
-<tr><td>チケット</td><td>倒されると<strong>指揮官のチームのチケットが 1 減ります</strong>（プレイヤーは 2。→ <a href="#18-5">18-5</a>）</td></tr>
+<tr><td>チケット</td><td>倒されても<strong>チケットは減りません</strong>（1.126.0。1.125.x までは指揮官のチームが 1 減っていました）</td></tr>
+<tr><td>自分で動く兵士</td><td>（1.126.0）プリセットのチームの画面で「自分で動く兵士」の数を決めると、<strong>命令を受けずに自分で動く兵士</strong>（holiguns）がそのチームに出ます。
+湧くのは<strong>そのチームの使える前線基地だけ</strong>（いま取りにかかる拠点にいちばん近い基地。1.128.0）で、基地ができるまでは待ちます。
+兵士のいる所は、近くにプレイヤーがいなくても読み込んだままにするので、遠くの基地から出た兵士も止まらずに歩きます（1.128.0。1チーム 48 チャンクまで、前線に近い兵士から）。いま取りにかかる拠点へ向かい、違うチームを撃ちます。
+<strong>倒れたら1分後に補充</strong>されます。見た目（スキン）はチームの画面の「兵士の見た目」で、holiguns の skins フォルダにある物から選べます（ww2-usa・ww2-ger など）。
+持たせる銃は「兵士の銃」で、holiguns の装備（小銃兵など）か銃から選べます（決めなければ、上陸作戦は防衛がドイツ・攻撃がアメリカの小銃兵、ほかは holiguns の既定）。兵士はパンを3つ持って湧きます。上陸作戦の数は「上陸作戦の設定」で決めます</td></tr>
 <tr><td>拠点を取る</td><td>拠点の中では<strong>プレイヤーと同じ1人</strong>として数えます。兵士を連れて入れば、それだけ速く取れます（→ <a href="#18-7">18-7</a>）。<strong>車両に乗っている兵士は数えません</strong>（1.97.0。人と同じ。乗せ方は 17-13）</td></tr>
 <tr><td>前線基地</td><td>敵の兵士も<strong>「基地のそばに居る敵」に数えます</strong>。兵士を張り付かせるだけで、敵はそこから湧けなくなります（→ <a href="#18-8">18-8</a>）</td></tr>
 <tr><td>倒れた兵士</td><td>倒れた体は<strong>もう数えません</strong>（チケットも、拠点の人数も、基地の敵の数も）</td></tr>
@@ -10522,7 +10704,7 @@ Chunky などで<strong>生成してある所はそのまま載ります</strong
 <tr><td>回収する</td><td>こちらも試合ごとの設定です。ただし<strong>スコップで建てた据え付けもの</strong>（弾薬箱・修理所など）は<strong>この設定に関わらず解体できます</strong>——解体なので<strong>キットも建設物資も戻りません</strong>（→ <a href="#18-13">18-13</a>）。
 <strong>迫撃砲は解体ではなく回収</strong>で、この設定に関わらず<strong>キットと装填してある TNT が戻ります</strong>（1.96.0）。
 <strong>敵のチームの車両・据え付けものは解体も回収もできません</strong>（1.96.0。→ <a href="guide-17-weapons.html#17-13">17-13</a>）</td></tr>
-<tr><td>直す・弾を入れる</td><td><strong>修理所のまわり8ブロック</strong>と<strong>自分の陣地（設備範囲）の中</strong>。<strong>燃料はどこでも</strong>入ります。<strong>固定兵器の弾もどこでも</strong>入ります（1.99.3。→ <a href="#18-9">18-9</a>）</td></tr>
+<tr><td>直す・弾を入れる</td><td><strong>修理所のまわり12ブロック</strong>と<strong>自分の陣地（設備範囲）の中</strong>。<strong>燃料はどこでも</strong>入ります。<strong>固定兵器の弾もどこでも</strong>入ります（1.99.3。→ <a href="#18-9">18-9</a>）</td></tr>
 <tr><td>固定兵器を建てる</td><td><strong>前線基地から128ブロック以内</strong>だけ（迫撃砲も同じ）。<strong>固定兵器は修理所が無くても、どこでも直せ・弾を入れられます</strong>（1.99.5。→ <a href="#18-9">18-9</a>）</td></tr>
 <tr><td>壊されたら</td><td>種類ごとに決まったチケットが減ります（MBT 15・IFV 10・APC 5 など。→ <a href="#18-5">18-5</a>）。<strong>乗っていた人も死にます</strong>ので、そのぶんのチケットも別に減ります</td></tr>
 <tr><td>置けない試合では<strong>湧きます</strong></td><td>「車両を置ける」を切った試合では、車両は<strong>スポーン地点の設備範囲に時間で湧きます</strong>（→ <a href="#18-20">18-20</a>）</td></tr>
@@ -10532,7 +10714,7 @@ Chunky などで<strong>生成してある所はそのまま載ります</strong
 <tr><td>ドローン</td><td>試合ごとの設定「<strong>ドローンを使える</strong>」を入れた試合だけ、<strong>試合に出ている人が試合のマップで</strong>置いて飛ばせます（1.101.0。既定は切で、切の試合では「<strong>この試合ではドローンを使えません。</strong>」と出ます）。<strong>ロビーではいつも使えません</strong>。
 置いた機体は<strong>試合が終わると積んだ物ごと片付きます</strong>（持ち出せません）。試合の前からマップに置いてあった機体は、試合のあいだ触れません。
 飛ばしている間は<strong>透明化がはがれず</strong>、<strong>兜も被せ直されません</strong>（姿の見えない頭に兜が浮かないように）。
-<strong>拠点・前線基地の人数は、発進した所に立っている身代わりで数えます</strong>（機体で拠点は取れません。拠点の中で飛ばし始めても、自分のぶんは数に残ります）。
+<strong>飛ばしている間は、拠点・前線基地の人数に入りません</strong>（1.122.0。機体の下でも、発進した所の身代わりでも数えません。1.121.0 までは身代わりで数えていたので、拠点の中で飛ばし始めると押さえ続けられました）。
 <strong>準備時間</strong>と<strong>自分のチームのスポーン保護の中</strong>では、機体も身代わりも傷つきません。<strong>戦場の外へ出た機体は墜ちます</strong>（本人は傷つきません）。
 試合が終わる・試合から抜けると、飛ばしていた機体は墜ちて本人はロビーへ戻ります。ドローンの使い方は → <a href="guide-17-weapons.html#17-6">17-6</a>。ジャミングブロックは試合では置けないままです</td></tr>
 </tbody>
@@ -10608,8 +10790,15 @@ Chunky などで<strong>生成してある所はそのまま載ります</strong
 <tr><td>RAAS の拠点の数・十字の長さ（プリセットの画面）</td><td>RAAS で作る占領地点の数（1〜32・初期 5）と、点を選ぶ十字の線の長さ（初期 160ブロック）。十字の長さは画面の<strong>左上の角</strong>です（1.103.2。1.99.1〜1.103.1 は「持ち物はホットバーと左手だけ」に隠れて、RAAS のプリセットの画面に出ていませんでした）</td></tr>
 <tr><td>この設定を写す（プリセットの画面の中）</td><td>チーム・拠点・キットの割り当て・賞品まで<strong>まるごと写した</strong>新しいプリセットを作ります（1.93.0）</td></tr>
 <tr><td>キット</td><td>配る装備を作ります</td></tr>
+<tr><td>参加者のチーム（試合中・チーム戦だけ。上の段の右）</td><td>試合に出ている人の<strong>チームを決めます</strong>（1.114.0）。人を押して、入れるチームを押します。その人はその場でそのチームへ移り、出撃し直します（車両に乗っていれば降ろします）。
+<strong>決めたチームは本人が変えられません</strong>（抜けて入り直しても同じチームです）。「決めたチームを外す」で、本人が変えられるように戻せます。試合が終わると消えます</td></tr>
 </tbody>
 </table></div>
+<p><strong>コマンドでチームを決める</strong>（1.114.0）… <code>/euradmin match team &lt;名前&gt; &lt;チームの番号か名前&gt;</code>（<code>free</code> で外す）。<strong>コンソールからも打てます</strong>。
+試合に出ていない人は、<code>/matchlobby</code> と同じくロビーへ入れて、そのチームで参加させます（オフラインの人は、入ってきたときにそのチームです）。
+<strong>試合が始まる前</strong>に打つと、次の試合が始まったときに当てます（チームの番号か、プリセットにあるチームの名前で）。
+受付の NPC をチームごとに置いて「コンソールで <code>euradmin match team %player% 1</code>」を仕込めば、押した人をそのチームで参加させられます。
+引数を付けずに <code>/euradmin match team</code> と打つと、チームの一覧と、決めた人の一覧が出ます。</p>
 <p>始められないプリセットには<strong>「始められません: …」</strong>と理由が出ます（マップが未設定、など）。</p>
 <p><strong>参加のさせ方</strong>（1.90.2）… 一般のプレイヤーは <code>/matchlobby</code> を打てません（権限 <code>eur.matchlobby</code> は既定で op だけ）。
 <code>/matchlobby &lt;名前&gt;</code> でその人をロビーへ入れ、<code>/matchlobby &lt;名前&gt; leave</code> で試合・ロビーから出せます。
@@ -10624,14 +10813,15 @@ Chunky などで<strong>生成してある所はそのまま載ります</strong
 </tr>
 </thead>
 <tbody>
-<tr><td>種目</td><td>制圧 (AAS)／ランダム制圧 (RAAS)／殲滅戦／旗取り (CTF)／デスマッチ（→ <a href="#18-6">18-6</a>）。<strong>制圧 (AAS)・RAAS は2チーム限定</strong>ですが、切り替えても<strong>3つ目以降のチームは消えません</strong>（1.82.0）。2つに減らすまで「始められません」と出ます</td></tr>
+<tr><td>種目</td><td>制圧 (AAS)／ランダム制圧 (RAAS)／防衛戦／上陸作戦 (D-DAY)／殲滅戦／旗取り (CTF)／多拠点旗取り (CTFV2)／デスマッチ（→ <a href="#18-6">18-6</a>）。<strong>制圧 (AAS)・RAAS・防衛戦・上陸作戦は2チーム限定</strong>ですが、切り替えても<strong>3つ目以降のチームは消えません</strong>（1.82.0）。2つに減らすまで「始められません」と出ます</td></tr>
 <tr><td>マップ</td><td>使うワールド。複数入れておくと、始めるときに選べます。<strong>マップを右クリックすると、戦略地図の地形を先に写せます</strong>（1.83.0。下の「戦略地図を先に写しておく」）</td></tr>
 <tr><td>ロビー</td><td>集合場所。<strong>決めなければ勝手に作られます</strong>（石の小屋。右クリックで自動へ戻せます）</td></tr>
 <tr><td>形式</td><td>チーム戦か個人戦か。チーム戦は<strong>自動で割り振る／自分で選ぶ</strong>を選べます</td></tr>
 <tr><td>チーム</td><td>名前・色・スポーン地点・キット。<strong>スポーン地点はいま立っている場所</strong>から取れます</td></tr>
 <tr><td>占領地点</td><td>拠点の場所・名前・広さ。<strong>チーム1のスポーンから数えた順</strong>に並びます（→ <a href="#18-7">18-7</a>）</td></tr>
 <tr><td>戦場の範囲</td><td><strong>必須</strong>（1.83.0）。<strong>x,z の対角線の2点</strong>で決めます（左クリックで1つめの角・右クリックで2つめの角・Q で消す）。<strong>戦略地図に写す範囲</strong>（→ <a href="#18-11">18-11</a>）・<strong>Web地図で描き直しを止める範囲</strong>（→ <a href="#18-12">18-12</a>）・<strong>マップを複製するときに写す範囲</strong>・<strong>この外へ出た人が傷つき始める境目</strong>（→ <a href="#18-2">18-2</a>）になります。戦略地図はこの範囲より <strong>512m 広く</strong>写します</td></tr>
-<tr><td>チケット</td><td>最初の数と、<strong>項目ごとの値</strong>（数えない設定にもできます。→ <a href="#18-5">18-5</a>）</td></tr>
+<tr><td>チケット</td><td>最初の数と、<strong>項目ごとの値</strong>（数えない設定にもできます。→ <a href="#18-5">18-5</a>）。
+<strong>最初の数はチームごとにも決められます</strong>（1.125.0。チケットの画面の、真ん中の紙の両わきのチームの旗。0 でプリセットの数に戻ります）</td></tr>
 <tr><td>キット</td><td>配り方（全員おなじ／チームごと／人ごと／選択制）と、その割り当て（→ <a href="#18-4">18-4</a>）</td></tr>
 <tr><td>賞品</td><td><strong>優勝チーム</strong>と<strong>最多撃破</strong>へ配る物と、<strong>参加賞</strong>（終わったときに試合に出ていた全員へ。勝ち負け・チームを問わない。1.99.0）</td></tr>
 </tbody>
@@ -10663,15 +10853,18 @@ Chunky などで<strong>生成してある所はそのまま載ります</strong
 <tr><td>ブロックを壊せる</td><td>許すと、終わったあと<strong>変えたぶんだけ元に戻ります</strong>。
 <strong>切ると、兵器の爆発（迫撃砲・戦車砲・ミサイル・地雷・TNT）でもブロックは壊れません</strong>（1.87.0。当たりは今までどおり）。
 車両が走って押し倒す葉・原木・フェンスは、どちらでも押し倒せます</td></tr>
-<tr><td>葉・原木・フェンス・草花は壊せる</td><td><strong>切</strong>（1.89.0）。「ブロックを壊せる」を切っていても、これだけは壊せます。
-<strong>草（背の低い草・背の高い草・シダ・枯れ木など）と花（小さな花・背の高い花・桜の花びらなど）も入ります</strong>（1.99.0）。草のブロック・土は入りません</td></tr>
+<tr><td>葉・原木・フェンス・草花・サボテンは壊せる</td><td><strong>切</strong>（1.89.0）。「ブロックを壊せる」を切っていても、これだけは壊せます。
+<strong>草（背の低い草・背の高い草・シダ・枯れ木など）と花（小さな花・背の高い花・桜の花びらなど）も入ります</strong>（1.99.0）。<strong>サボテンも入ります</strong>（1.120.1）。草のブロック・土は入りません</td></tr>
+<tr><td>塹壕を掘れる</td><td><strong>切</strong>（1.120.1。1.122.0 から「ブロックを壊せる」の左隣。シャベルの絵です）。入れると、<strong>試合が始まったときの地面から深さ2ブロックまで</strong>は、「ブロックを壊せる」「葉・原木…は壊せる」の設定に関わらず掘れます。
+地面は、木・草花・サボテンを除いた<strong>いちばん上の固いブロック</strong>です（木の下も、木を除いた地面から数えます）。掘って下がっても、数えるのは始まったときの地面からです。
+「素手でだけ壊せる」は、塹壕にも掛かります。終わったあとは元に戻ります</td></tr>
 <tr><td>素手でだけ壊せる</td><td><strong>切</strong>（1.89.0）。入れると、何かを持っているとブロックを壊せません</td></tr>
 <tr><td>スイレンの葉は置ける・壊せる</td><td><strong>切</strong>（1.89.0）。置けない・壊せない試合でも、スイレンの葉だけは置けて壊せます</td></tr>
 <tr><td>兵士の上限（1人あたり）／兵士を出せる範囲</td><td><strong>64人</strong>／<strong>スポーン地点から64ブロック</strong>（1.89.0。0 で見ない／どこでも。→ <a href="#18-14">18-14</a>）</td></tr>
 <tr><td>兵士を出せる場所</td><td><strong>メインベースだけ</strong>（既定）／<strong>メインベースと前線基地</strong>／<strong>どこでも</strong>（1.99.0。押すたびに切り替わります。前線基地は味方のもので、範囲は上の「兵士を出せる範囲」と同じ）</td></tr>
 <tr><td>車両を置ける／回収できる</td><td>→ <a href="#18-15">18-15</a></td></tr>
 <tr><td>地雷を据えられる</td><td>ブロックを置けない試合でも、地雷だけ別枠で許せます</td></tr>
-<tr><td>ドローンを使える</td><td><strong>切</strong>（1.101.0。1 の枠）。入れると、試合に出ている人が試合のマップでドローンを使えます（→ <a href="#18-15">18-15</a>）</td></tr>
+<tr><td>ドローンを使える</td><td><strong>切</strong>（1.101.0。1 の枠＝<strong>いちばん上の段の左から2つ目、重い核の絵</strong>。1.120.1 までは灰色の染料で縁にまぎれていました。入れると光ります）。入れると、試合に出ている人が試合のマップでドローンを使えます（→ <a href="#18-15">18-15</a>）</td></tr>
 <tr><td>車両が木・フェンスを押し倒す／車両が葉を押し倒す</td><td>どちらも<strong>入</strong>（1.99.2。2・3 の枠）。切ると、試合のマップではその木（原木・フェンス・フェンスゲート・竹・サボテン・きのこ・ツツジなど）や葉が<strong>ほかのブロックと同じく車両を止めます</strong></td></tr>
 <tr><td>持ち物はホットバーと左手だけ</td><td><strong>切</strong>（1.99.1 で戻しました。23 の枠）。入れると、持ち物の奥の27枠がバリアで塞がれます（→ <a href="#18-1">18-1</a>）</td></tr>
 <tr><td>敵の名前を隠す</td><td>→ <a href="#18-3">18-3</a>。切ればふだんどおり見えます（ロケーターバーの切り替えは 1.95.0 で外しました → <a href="guide-11-chat-display.html#11-2b">11-2b</a>）</td></tr>
